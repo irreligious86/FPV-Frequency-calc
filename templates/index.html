@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>FPV Frequency Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Welcome to Flask!</h1>
-    <p>This is a simple Flask application with templates.</p>
+    <div class="matrix-overlay">
+        <canvas id="matrixCanvas"></canvas>
+    </div>
+
+    <div class="content">
+        <h1>FPV Frequency Analyzer</h1>
+        <p>Analyze the proximity of digital and analog FPV drone channels.</p>
+        <button onclick="startAnalysis()">Start Analysis</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
