@@ -10,7 +10,7 @@ body {
     overflow: hidden;
 }
 
-/* Анимированный фон */
+/* Анимированный фон "Матрицы" */
 .matrix-overlay {
     position: fixed;
     top: 0;
@@ -20,37 +20,28 @@ body {
     z-index: -1;
 }
 
-/* FPV-дроны в фоне */
-body::before {
-    content: "";
+/* FPV-дрон */
+.fpv-drone {
     position: fixed;
-    top: 10%;
-    left: 20%;
-    width: 200px;
-    height: 200px;
-    background: url("../img/fpv-drone1.png") no-repeat center;
-    background-size: contain;
-    opacity: 0.2;
-    animation: drift 15s infinite alternate ease-in-out;
+    top: 30%;
+    right: 5%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    opacity: 0.4;
+    animation: droneFloat 4s infinite alternate ease-in-out, droneTilt 2s infinite alternate ease-in-out;
 }
 
-body::after {
-    content: "";
-    position: fixed;
-    top: 60%;
-    left: 70%;
-    width: 250px;
-    height: 250px;
-    background: url("../img/fpv-drone2.png") no-repeat center;
-    background-size: contain;
-    opacity: 0.2;
-    animation: drift 18s infinite alternate ease-in-out;
+/* Плавное движение вверх-вниз */
+@keyframes droneFloat {
+    0% { transform: translate(-50%, -50%) rotate(-2deg); }
+    100% { transform: translate(-50%, -52%) rotate(2deg); }
 }
 
-/* Движение дронов */
-@keyframes drift {
-    0% { transform: translateY(0px) rotate(2deg); }
-    100% { transform: translateY(30px) rotate(-2deg); }
+/* Легкое дрожание дрона (вибрация от пропеллеров) */
+@keyframes droneTilt {
+    0% { transform: translate(-50%, -50%) rotate(-1deg); }
+    100% { transform: translate(-50%, -50%) rotate(1deg); }
 }
 
 /* Основной контент */

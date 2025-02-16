@@ -32,3 +32,22 @@ window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+/* Вращение пропеллеров вокруг центров моторов */
+const propellers = [
+    { element: document.getElementById("prop1"), cx: 70, cy: 70 },
+    { element: document.getElementById("prop2"), cx: 230, cy: 70 },
+    { element: document.getElementById("prop3"), cx: 70, cy: 230 },
+    { element: document.getElementById("prop4"), cx: 230, cy: 230 }
+];
+
+let angle = 0;
+
+function rotatePropellers() {
+    angle += 10;
+    propellers.forEach(prop => {
+        prop.element.setAttribute("transform", `rotate(${angle} ${prop.cx} ${prop.cy})`);
+    });
+}
+
+setInterval(rotatePropellers, 50);
