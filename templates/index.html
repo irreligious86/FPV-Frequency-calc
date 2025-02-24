@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
+
+    <!-- Анимированный фон "Матрицы" -->
     <div class="matrix-overlay">
         <canvas id="matrixCanvas"></canvas>
     </div>
 
+    <!-- Основной контент -->
     <div class="content">
         <h1>FPV Frequency Analyzer</h1>
         <p>Analyze the proximity of digital and analog FPV drone channels.</p>
 
-        <!-- Выпадающие списки -->
+        <!-- Выпадающие списки для выбора диапазона и канала -->
         <div class="dropdown-container">
             <label for="bandSelect">Select FPV Band:</label>
             <select id="bandSelect" onchange="updateChannels()">
@@ -34,9 +37,44 @@
             </select>
         </div>
 
+        <!-- Кнопка запуска анализа -->
         <button onclick="startAnalysis()">Start Analysis</button>
     </div>
 
+    <div class="fpv-drone-container">
+        <svg id="fpv-drone" width="200" height="200" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Корпус дрона -->
+            <rect x="135" y="135" width="30" height="30" fill="gray" stroke="black" stroke-width="3" />
+            
+            <!-- Рама дрона -->
+            <line x1="150" y1="150" x2="90" y2="80" stroke="black" stroke-width="6" stroke-linecap="round" />
+            <line x1="150" y1="150" x2="210" y2="80" stroke="black" stroke-width="6" stroke-linecap="round" />
+            <line x1="150" y1="150" x2="90" y2="220" stroke="black" stroke-width="6" stroke-linecap="round" />
+            <line x1="150" y1="150" x2="210" y2="220" stroke="black" stroke-width="6" stroke-linecap="round" />
+    
+            <!-- Пропеллеры -->
+            <g class="propeller" transform="rotate(0 90 80)">
+                <circle cx="90" cy="80" r="10" fill="black" />
+                <circle cx="90" cy="80" r="30" fill="gray" opacity="0.6" />
+            </g>
+            <g class="propeller" transform="rotate(0 210 80)">
+                <circle cx="210" cy="80" r="10" fill="black" />
+                <circle cx="210" cy="80" r="30" fill="gray" opacity="0.6" />
+            </g>
+            <g class="propeller" transform="rotate(0 90 220)">
+                <circle cx="90" cy="220" r="10" fill="black" />
+                <circle cx="90" cy="220" r="30" fill="gray" opacity="0.6" />
+            </g>
+            <g class="propeller" transform="rotate(0 210 220)">
+                <circle cx="210" cy="220" r="10" fill="black" />
+                <circle cx="210" cy="220" r="30" fill="gray" opacity="0.6" />
+            </g>
+        </svg>
+    </div>
+    
+
+    <!-- Подключение JS-скрипта -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
 </html>

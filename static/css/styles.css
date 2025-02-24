@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+/* Сбрасываем отступы и выбираем шрифт */
 body {
     margin: 0;
     padding: 0;
@@ -7,47 +8,23 @@ body {
     background-color: black;
     color: cyan;
     text-align: center;
-    overflow: hidden;
+    overflow: hidden; /* Отключаем прокрутку */
 }
 
-/* Анимированный фон "Матрицы" */
+/* Контейнер для анимации "Матрицы" */
 .matrix-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-}
-
-/* FPV-дрон */
-.fpv-drone {
-    position: fixed;
-    top: 30%;
-    right: 5%;
-    width: 300px;
-    height: 300px;
-    transform: translate(-50%, -50%);
-    opacity: 0.4;
-    animation: droneFloat 4s infinite alternate ease-in-out, droneTilt 2s infinite alternate ease-in-out;
-}
-
-/* Плавное движение вверх-вниз */
-@keyframes droneFloat {
-    0% { transform: translate(-50%, -50%) rotate(-2deg); }
-    100% { transform: translate(-50%, -52%) rotate(2deg); }
-}
-
-/* Легкое дрожание дрона (вибрация от пропеллеров) */
-@keyframes droneTilt {
-    0% { transform: translate(-50%, -50%) rotate(-1deg); }
-    100% { transform: translate(-50%, -50%) rotate(1deg); }
+    z-index: -1; /* Помещаем за контент */
 }
 
 /* Основной контент */
 .content {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Размещаем выше фоновой анимации */
     margin-top: 20vh;
 }
 
@@ -61,6 +38,7 @@ p {
     text-shadow: 0 0 5px cyan;
 }
 
+/* Стилизация кнопки */
 button {
     background-color: transparent;
     border: 2px solid cyan;
@@ -78,8 +56,7 @@ button:hover {
     box-shadow: 0 0 20px cyan;
 }
 
-
-/* Стиль контейнера для выпадающих списков */
+/* Контейнер для выпадающих списков */
 .dropdown-container {
     margin: 20px auto;
     text-align: center;
@@ -103,3 +80,23 @@ select:disabled {
     cursor: not-allowed;
     box-shadow: none;
 }
+
+.fpv-drone-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 200px;
+    height: 200px;
+    animation: droneFloat 3s infinite alternate ease-in-out, droneRotate 30s linear infinite; /* Добавляем вращение */
+}
+
+@keyframes droneFloat {
+    0% { transform: translateY(0px) rotate(-2deg); }
+    100% { transform: translateY(10px) rotate(2deg); }
+}
+
+@keyframes droneRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); } /* Вращение вокруг своей оси */
+}
+
