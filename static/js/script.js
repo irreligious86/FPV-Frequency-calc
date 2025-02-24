@@ -51,3 +51,37 @@ function rotatePropellers() {
 }
 
 setInterval(rotatePropellers, 50);
+
+// Доступные каналы для каждого бенда
+const bandChannels = {
+    "A": [1, 2, 3, 4, 5, 6, 7, 8],
+    "B": [1, 2, 3, 4, 5, 6, 7, 8],
+    "E": [1, 2, 3, 4, 5, 6, 7, 8],
+    "F": [1, 2, 3, 4, 5, 6, 7, 8],
+    "R": [1, 2, 3, 4, 5, 6, 7, 8],
+    "L": [1, 2, 3, 4, 5, 6, 7, 8]
+};
+
+// Функция для обновления списка каналов
+function updateChannels() {
+    const bandSelect = document.getElementById("bandSelect");
+    const channelSelect = document.getElementById("channelSelect");
+
+    // Очищаем список каналов
+    channelSelect.innerHTML = "";
+
+    if (bandSelect.value === "") {
+        // Если бенд не выбран, список отключен
+        channelSelect.disabled = true;
+        channelSelect.innerHTML = "<option value=''>Выберите бенд</option>";
+    } else {
+        // Включаем список и добавляем каналы для выбранного бенда
+        channelSelect.disabled = false;
+        bandChannels[bandSelect.value].forEach(channel => {
+            const option = document.createElement("option");
+            option.value = channel;
+            option.textContent = `Channel ${channel}`;
+            channelSelect.appendChild(option);
+        });
+    }
+}

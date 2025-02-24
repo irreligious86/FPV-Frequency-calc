@@ -77,3 +77,29 @@ button:hover {
     color: black;
     box-shadow: 0 0 20px cyan;
 }
+
+
+/* Стиль контейнера для выпадающих списков */
+.dropdown-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Стилизация выпадающих списков */
+select {
+    padding: 10px;
+    font-size: 1em;
+    margin: 10px;
+    border: 2px solid cyan;
+    background-color: black;
+    color: cyan;
+    cursor: pointer;
+    box-shadow: 0 0 10px cyan;
+}
+
+select:disabled {
+    border: 2px solid gray;
+    color: gray;
+    cursor: not-allowed;
+    box-shadow: none;
+}
