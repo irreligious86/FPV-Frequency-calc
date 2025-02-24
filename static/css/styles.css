@@ -81,22 +81,3 @@ select:disabled {
     box-shadow: none;
 }
 
-.fpv-drone-container {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    width: 200px;
-    height: 200px;
-    animation: droneFloat 3s infinite alternate ease-in-out, droneRotate 30s linear infinite; /* Добавляем вращение */
-}
-
-@keyframes droneFloat {
-    0% { transform: translateY(0px) rotate(-2deg); }
-    100% { transform: translateY(10px) rotate(2deg); }
-}
-
-@keyframes droneRotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); } /* Вращение вокруг своей оси */
-}
-
