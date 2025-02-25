@@ -81,3 +81,26 @@ select:disabled {
     box-shadow: none;
 }
 
+/* FPV-дрон */
+.fpv-drone {
+    position: fixed;
+    top: 30%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    opacity: 0.4;
+    animation: droneFloat 4s infinite alternate ease-in-out, droneTilt 2s infinite alternate ease-in-out;
+}
+
+/* Плавное движение вверх-вниз */
+@keyframes droneFloat {
+    0% { transform: translate(-50%, -50%) rotate(-2deg); }
+    100% { transform: translate(-50%, -52%) rotate(2deg); }
+}
+
+/* Легкое дрожание дрона (вибрация от пропеллеров) */
+@keyframes droneTilt {
+    0% { transform: translate(-50%, -50%) rotate(-1deg); }
+    100% { transform: translate(-50%, -50%) rotate(1deg); }
+}
