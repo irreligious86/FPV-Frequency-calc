@@ -1,4 +1,4 @@
-{
+const fpvData = {
     "5.8GHz": {
         "Band A (Boscam)": {
             "region": "FCC/CE",
@@ -119,7 +119,7 @@
                 "5": 2435
             }
         }
-      },
+    },
     "1.3GHz": {
         "Long Range": {
             "region": "FCC/CE",
@@ -137,7 +137,7 @@
             }
         }
     },
-   "900MHz": {
+    "900MHz": {
       "Low Frequency FPV": {
         "region": "FCC/CE",
         "bandwidth": 10,
@@ -207,136 +207,169 @@
                 "11": 5925
             }
         }
+    }
     },
     "2.4 DJI Digital FPV": {
-        "CE Mode": {
-            "region": "CE",
-            "bandwidth": 20,
-            "modulation": "Digital",
-            "channels": {
-                "1": 2402,
-                "2": 2426,
-                "3": 2450,
-                "4": 2475
-            }
-        },
-        "FCC Unlocked": {
-            "region": "FCC",
-            "bandwidth": 20,
-            "modulation": "Digital",
-            "channels": {
-                "1": 2380,
-                "2": 2402,
-                "3": 2414,
-                "4": 2426,
-                "5": 2438,
-                "6": 2450,
-                "7": 2475,
-                "8": 2480
-            }
+    "CE Mode": {
+        "region": "CE",
+        "bandwidth": 20,
+        "modulation": "Digital",
+        "channels": {
+            "1": 2402,
+            "2": 2426,
+            "3": 2450,
+            "4": 2475
         }
     },
-    "HDZero": {
-        "CE Mode": {
-            "region": "CE",
-            "bandwidth": 20,
-            "modulation": "Digital",
-            "channels": {
-                "1": 5735,
-                "2": 5770,
-                "3": 5805,
-                "4": 5878
-            }
-        },
-        "FCC Mode": {
-            "region": "FCC",
-            "bandwidth": 20,
-            "modulation": "Digital",
-            "channels": {
-                "1": 5660,
-                "2": 5700,
-                "3": 5745,
-                "4": 5785,
-                "5": 5825,
-                "6": 5865,
-                "7": 5905,
-                "8": 5945,
-                "9": 5960
-            }
-        },
-        "FCC Unlocked": {
-            "region": "FCC",
-            "bandwidth": 20,
-            "modulation": "Digital",
-            "channels": {
-                "1": 5660,
-                "2": 5700,
-                "3": 5745,
-                "4": 5785,
-                "5": 5825,
-                "6": 5865,
-                "7": 5905,
-                "8": 5945,
-                "9": 5980,
-                "10": 6025,
-                "11": 5925,
-                "12": 6040
-            }
-        }
-    },
-    "Walksnail Avatar": {
-        "Standard": {
-            "region": "FCC/CE",
-            "bandwidth": 20,
-            "modulation": "Digital",
-            "channels": {
-                "1": 5660,
-                "2": 5700,
-                "3": 5745,
-                "4": 5805,
-                "5": 5878
-            }
-        },
-        "FCC Mode": {
-            "region": "FCC",
-            "bandwidth": 20,
-            "modulation": "Digital",
-            "channels": {
-                "1": 5660,
-                "2": 5700,
-                "3": 5745,
-                "4": 5785,
-                "5": 5825,
-                "6": 5865,
-                "7": 5905,
-                "8": 5945,
-                "9": 5960
-            }
-        },
-        "FCC Unlocked": {
-            "region": "FCC",
-            "bandwidth": 20,
-            "modulation": "Digital",
-            "channels": {
-                "1": 5660,
-                "2": 5700,
-                "3": 5745,
-                "4": 5785,
-                "5": 5825,
-                "6": 5865,
-                "7": 5905,
-                "8": 5945,
-                "9": 5980,
-                "10": 6025,
-                "11": 5925,
-                "12": 6040
-            }
+    "FCC Unlocked": {
+        "region": "FCC",
+        "bandwidth": 20,
+        "modulation": "Digital",
+        "channels": {
+            "1": 2380,
+            "2": 2402,
+            "3": 2414,
+            "4": 2426,
+            "5": 2438,
+            "6": 2450,
+            "7": 2475,
+            "8": 2480
         }
     }
-  }
+    },
+    "HDZero": {
+    "CE Mode": {
+        "region": "CE",
+        "bandwidth": 20,
+        "modulation": "Digital",
+        "channels": {
+            "1": 5735,
+            "2": 5770,
+            "3": 5805,
+            "4": 5878
+        }
+    },
+    "FCC Mode": {
+        "region": "FCC",
+        "bandwidth": 20,
+        "modulation": "Digital",
+        "channels": {
+            "1": 5660,
+            "2": 5700,
+            "3": 5745,
+            "4": 5785,
+            "5": 5825,
+            "6": 5865,
+            "7": 5905,
+            "8": 5945,
+            "9": 5960
+        }
+    },
+    "FCC Unlocked": {
+        "region": "FCC",
+        "bandwidth": 20,
+        "modulation": "Digital",
+        "channels": {
+            "1": 5660,
+            "2": 5700,
+            "3": 5745,
+            "4": 5785,
+            "5": 5825,
+            "6": 5865,
+            "7": 5905,
+            "8": 5945,
+            "9": 5980,
+            "10": 6025,
+            "11": 5925,
+            "12": 6040
+        }
+    }
+    },
+    "Walksnail Avatar": {
+    "Standard": {
+        "region": "FCC/CE",
+        "bandwidth": 20,
+        "modulation": "Digital",
+        "channels": {
+            "1": 5660,
+            "2": 5700,
+            "3": 5745,
+            "4": 5805,
+            "5": 5878
+        }
+    },
+    "FCC Mode": {
+        "region": "FCC",
+        "bandwidth": 20,
+        "modulation": "Digital",
+        "channels": {
+            "1": 5660,
+            "2": 5700,
+            "3": 5745,
+            "4": 5785,
+            "5": 5825,
+            "6": 5865,
+            "7": 5905,
+            "8": 5945,
+            "9": 5960
+        }
+    },
+    "FCC Unlocked": {
+        "region": "FCC",
+        "bandwidth": 20,
+        "modulation": "Digital",
+        "channels": {
+            "1": 5660,
+            "2": 5700,
+            "3": 5745,
+            "4": 5785,
+            "5": 5825,
+            "6": 5865,
+            "7": 5905,
+            "8": 5945,
+            "9": 5980,
+            "10": 6025,
+            "11": 5925,
+            "12": 6040
+        }
+    }
+    }
 }
 
+console.log("test");
 
 
+const FPVChannelData = {
+    data: fpvData,
 
+    // Получение информации о диапазоне частот
+    getBandInfo: function (frequencyBand) {
+        return this.data[frequencyBand] || "Band not found";
+    },
 
+    // Получение списка каналов для конкретного бенда
+    getBandChannels: function (frequencyBand, bandName) {
+        return this.data[frequencyBand]?.[bandName]?.channels || "Band not found";
+    },
+
+    // Получение частоты конкретного канала
+    getChannelFrequency: function (frequencyBand, bandName, channelNumber) {
+        return this.data[frequencyBand]?.[bandName]?.channels?.[channelNumber] || "Channel not found";
+    },
+
+    // Получение метаданных бенда
+    getBandMetadata: function (frequencyBand, bandName) {
+        let bandData = this.data[frequencyBand]?.[bandName];
+        return bandData ? {
+            region: bandData.region,
+            bandwidth: bandData.bandwidth,
+            modulation: bandData.modulation
+        } : "Band not found";
+    }
+};
+
+// ✅ Примеры использования:
+console.log(FPVChannelData.getBandInfo("5.8GHz"));  // Вернет всю инфу о 5.8GHz
+console.log(FPVChannelData.getBandChannels("5.8GHz", "Band A (Boscam)")); // Каналы
+console.log(FPVChannelData.getChannelFrequency("5.8GHz", "Band A (Boscam)", "3")); // Частота канала 3
+console.log(FPVChannelData.getBandMetadata("5.8GHz", "Raceband (ImmersionRC)")); // Метаданные бенда
