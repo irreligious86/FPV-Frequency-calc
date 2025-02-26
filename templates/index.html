@@ -13,8 +13,8 @@
         <canvas id="matrixCanvas"></canvas>
     </div>
 
-        <!-- FPV-дрон с анимацией -->
-        <div class="fpv-drone">
+    <!-- FPV-дрон с анимацией -->
+    <div class="fpv-drone">
             <svg viewBox="0 0 300 300">
                 <!-- Центральный корпус -->
                 <rect x="130" y="130" width="40" height="40" fill="none" stroke="cyan" stroke-width="2"/>
@@ -54,7 +54,7 @@
                     <line x1="230" y1="215" x2="230" y2="245" stroke="cyan" stroke-width="2"/>
                 </g>
             </svg>
-        </div>
+    </div>
 
     <!-- Основной контент -->
     <div class="content">
@@ -81,28 +81,17 @@
         </div>
 
         <!-- Кнопка запуска анализа -->
-        <button onclick="startAnalysis()">Start Analysis</button>
+        <button>Start Analysis</button>
     </div>
 
      <!-- Подключение JavaScript-файла -->
-  <script src="{{ url_for('static', filename='js/matrix-style.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/matrix-style.js') }}"></script>
 
     <!-- Подключение JS-скрипта -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-  <!-- Кнопка для получения данных -->
-  <button onclick="showBandInfo()">Show Band Info</button>
-  <p id="output"></p>
-
-  <!-- Подключение JavaScript-файла -->
-  <script src="{{ url_for('static', filename='js/fpv_data.js') }}"></script>
-
-  <script>
-      function showBandInfo() {
-          let bandInfo = FPVChannelData.getBandInfo("5.8GHz");
-          document.getElementById("output").innerText = JSON.stringify(bandInfo, null, 2);
-      }
-  </script>
+    <!-- Подключение JavaScript-файла -->
+    <script src="{{ url_for('static', filename='js/fpv_data.js') }}"></script>
 
 </body>
 </html>
