@@ -84,6 +84,9 @@
         <button onclick="startAnalysis()">Start Analysis</button>
     </div>
 
+     <!-- Подключение JavaScript-файла -->
+  <script src="{{ url_for('static', filename='js/matrix-style.js') }}"></script>
+
     <!-- Подключение JS-скрипта -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
@@ -98,8 +101,7 @@
       function showBandInfo() {
           let bandInfo = FPVChannelData.getBandInfo("5.8GHz");
           document.getElementById("output").innerText = JSON.stringify(bandInfo, null, 2);
-      }console.log("test333");
-      
+      }
   </script>
 
 </body>
