@@ -25,12 +25,30 @@ body {
 .content {
     position: relative;
     z-index: 2; /* Размещаем выше фоновой анимации */
-    margin-top: 20vh;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Заголовки */
 h1 {
-    font-size: 2em;
-    text-shadow: 0 0 10px cyan;
+    font-size: 2.2em;
+    text-shadow: 0 0 15px cyan;
+    margin-bottom: 20px;
 }
 
 p {
@@ -38,16 +56,27 @@ p {
     text-shadow: 0 0 5px cyan;
 }
 
-/* Стилизация кнопки */
+/* Контейнер для выпадающих списков и кнопок */
+.selection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Стилизация кнопок */
 button {
     background-color: transparent;
     border: 2px solid cyan;
     color: cyan;
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 1.2em;
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 0 0 10px cyan;
+    width: 280px;
+    text-transform: uppercase;
 }
 
 button:hover {
@@ -56,29 +85,55 @@ button:hover {
     box-shadow: 0 0 20px cyan;
 }
 
-/* Контейнер для выпадающих списков */
-.dropdown-container {
-    margin: 20px auto;
-    text-align: center;
+/* Заблокированные кнопки (недоступны, пока не сделан выбор) */
+button:disabled {
+    border: 2px solid gray;
+    color: gray;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.5;
+}
+
+label {
+    border: 5px solid rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .8);
 }
 
 /* Стилизация выпадающих списков */
 select {
     padding: 10px;
     font-size: 1em;
-    margin: 10px;
+    margin: 5px;
     border: 2px solid cyan;
     background-color: black;
     color: cyan;
     cursor: pointer;
     box-shadow: 0 0 10px cyan;
+    width: 300px;
+    text-align: center;
 }
 
+/* Стиль заблокированных выпадающих списков */
 select:disabled {
     border: 2px solid gray;
     color: gray;
     cursor: not-allowed;
     box-shadow: none;
+}
+
+/* Стиль блока вывода */
+#output {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid cyan;
+    background: rgba(0, 0, 0, 0.8);
+    color: cyan;
+    box-shadow: 0 0 15px cyan;
+    width: 60%;
+    text-align: left;
+    font-size: 1.1em;
+    max-height: 300px;
+    overflow-y: auto; /* Прокрутка, если данных много */
 }
 
 /* FPV-дрон */

@@ -58,30 +58,44 @@
 
     <!-- Основной контент -->
     <div class="content">
+       
         <h1>FPV Frequency Analyzer</h1>
-        <p>Analyze the proximity of digital and analog FPV drone channels.</p>
 
-        <!-- Выпадающие списки для выбора диапазона и канала -->
-        <div class="dropdown-container">
-            <label for="bandSelect">Select FPV Band:</label>
-            <select id="bandSelect" onchange="updateChannels()">
-                <option value="" selected>Не выбрано</option>
-                <option value="A">Band A</option>
-                <option value="B">Band B</option>
-                <option value="E">Band E</option>
-                <option value="F">Band F</option>
-                <option value="R">Band R</option>
-                <option value="L">Band L</option>
+        <div class="container">
+            <div class="container-item">
+            <label for="modulationSelect">Select Modulation Type:</label>
+            <select id="modulationSelect" disabled>
+                <option value="">Choose...</option>
             </select>
-
-            <label for="channelSelect">Select Channel:</label>
-            <select id="channelSelect" disabled>
-                <option value="">Выберите бенд</option>
+            </div>
+    
+            <div class="container-item">
+            <label for="bandRangeSelect">Select Band Range:</label>
+            <select id="bandRangeSelect" disabled>
+                <option value="">Choose...</option>
             </select>
+            </div>
+    
+            <div class="container-item">
+            <label for="bandListSelect">Select Band:</label>
+            <select id="bandListSelect" disabled>
+                <option value="">Choose...</option>
+            </select>
+            </div>
+    
+            <div class="container-item">
+            <label for="channelListSelect">Select Channel:</label>
+            <select id="channelListSelect" disabled>
+                <option value="">Choose...</option>
+            </select>
+            </div>
+    
+            <div class="container-item">
+            <button id="getMetadataBtn" disabled>Get Band Metadata</button>
+            </div>
         </div>
-
-        <!-- Кнопка запуска анализа -->
-        <button>Start Analysis</button>
+    
+        <pre id="output"></pre> <!-- Вывод данных -->
     </div>
 
      <!-- Подключение JavaScript-файла -->
