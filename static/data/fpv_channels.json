@@ -89,7 +89,7 @@
         "3.3GHz": {
             "Band A": {
                 "region": null,
-                "bandwidth": null,
+                "bandwidth": 20,
                 "channels": {
                     "1": 3320,
                     "2": 3345,
@@ -103,7 +103,7 @@
             },
             "Band B": {
                 "region": null,
-                "bandwidth": null,
+                "bandwidth": 20,
                 "channels": {
                     "1": 3310,
                     "2": 3330,

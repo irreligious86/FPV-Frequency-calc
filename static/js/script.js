@@ -149,14 +149,100 @@ document.addEventListener("DOMContentLoaded", async () => {
         let selectedRange = bandRangeSelect.value;
         let selectedBand = bandListSelect.value;
         let selectedChannel = channelListSelect.value;
-
+    
         if (selectedModulation && selectedRange && selectedBand && selectedChannel) {
             clearOutput();
+    
+            // Получаем частоту и ширину канала
+            let bandData = fpvDataManager.getBandMetadata(selectedModulation, selectedRange, selectedBand);
             let channelFrequency = fpvDataManager.getChannelList(selectedModulation, selectedRange, selectedBand)[selectedChannel];
+            let bandwidth = bandData.bandwidth || 20; // По умолчанию 20 МГц
+    
+            let selectedMin = channelFrequency - bandwidth / 2;
+            let selectedMax = channelFrequency + bandwidth / 2;
+    
+            let criticalOverlap = [];
+            let mediumOverlap = [];
+            let closeNeighbor = [];
+            let safeChannels = [];
+    
+            // 🔍 Проверяем все каналы в JSON
+            for (let modulation in fpvDataManager.data) {
+                for (let range in fpvDataManager.data[modulation]) {
+                    for (let band in fpvDataManager.data[modulation][range]) {
+                        let bandMeta = fpvDataManager.getBandMetadata(modulation, range, band);
+                        let bandChannels = fpvDataManager.getChannelList(modulation, range, band);
+                        
+                        for (let channel in bandChannels) {
+                            let freq = bandChannels[channel];
+                            let bandWidth = bandMeta.bandwidth || 20;
+    
+                            let minFreq = freq - bandWidth / 2;
+                            let maxFreq = freq + bandWidth / 2;
 
-            output.textContent = `Band: ${selectedBand}\nChannel: ${selectedChannel}\nFrequency: ${channelFrequency} MHz\nChecking...`;
+                            // ❌ Исключаем исходный канал из вывода
+                            if (
+                                modulation === selectedModulation &&
+                                range === selectedRange &&
+                                band === selectedBand &&
+                                channel === selectedChannel
+                            ) {
+                                continue; // Пропускаем этот канал
+                            }
+    
+                            // 📌 Вычисляем уровень пересечения
+                            let overlapAmount = Math.min(selectedMax, maxFreq) - Math.max(selectedMin, minFreq);
+                            let overlapPercentage = (overlapAmount / bandwidth) * 100;
+    
+                            // 🔴 Критичное пересечение (10%+)
+                            if (overlapPercentage >= 10) {
+                                criticalOverlap.push({ modulation, range, band, channel, frequency: freq, bandwidth: bandWidth, level: "🔴" });
+                            }
+                            // 🟠 Средний уровень помех (менее 10% или соседство до 50% ширины)
+                            else if (overlapPercentage > 0 || Math.abs(channelFrequency - freq) <= bandwidth / 2) {
+                                mediumOverlap.push({ modulation, range, band, channel, frequency: freq, bandwidth: bandWidth, level: "🟠" });
+                            }
+                            // 🟡 Близкое соседство (от 50% до 150% ширины)
+                            else if (Math.abs(channelFrequency - freq) <= 1.5 * bandwidth) {
+                                closeNeighbor.push({ modulation, range, band, channel, frequency: freq, bandwidth: bandWidth, level: "🟡" });
+                            }
+                            // 🟢 Безопасное соседство (более 150% ширины)
+                            else {
+                                safeChannels.push({ modulation, range, band, channel, frequency: freq, bandwidth: bandWidth, level: "🟢" });
+                            }
+                        }
+                    }
+                }
+            }
+    
+            // 📌 Формируем вывод
+            let resultText = `🎯 Selected Channel:\n📡 ${selectedModulation} - ${selectedRange} - ${selectedBand} - CH${selectedChannel}: ${channelFrequency} MHz (BW: ${bandwidth} MHz)\n\n`;
+    
+            if (criticalOverlap.length > 0) {
+                resultText += `🔴 **Critical Interference (10%+ overlap):**\n`;
+                resultText += criticalOverlap.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - CH${o.channel}: ${o.frequency} MHz (BW: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
+            }
+    
+            if (mediumOverlap.length > 0) {
+                resultText += `🟠 **Medium Interference (<10% overlap or <50% distance):**\n`;
+                resultText += mediumOverlap.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - CH${o.channel}: ${o.frequency} MHz (BW: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
+            }
+    
+            if (closeNeighbor.length > 0) {
+                resultText += `🟡 **Close Neighboring Channels (50%-150% distance):**\n`;
+                resultText += closeNeighbor.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - CH${o.channel}: ${o.frequency} MHz (BW: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
+            }
+    
+            if (safeChannels.length > 0) {
+                resultText += `🟢 **Safe Channels (150%+ distance):**\n`;
+                resultText += safeChannels.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - CH${o.channel}: ${o.frequency} MHz (BW: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
+            }
+    
+            output.innerHTML = resultText;
         }
     });
+    
+    
 
     // Запускаем начальное заполнение модуляций
     populateModulations();
