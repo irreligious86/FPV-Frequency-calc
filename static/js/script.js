@@ -23,7 +23,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     const bandListSelect = document.getElementById("bandListSelect");
     const channelListSelect = document.getElementById("channelListSelect");
     const getMetadataBtn = document.getElementById("getMetadataBtn");
-    const output = document.getElementById("output");
+    const findOverlapBtn = document.getElementById("findOverlapBtn"); // КНОПКА
+    const output = document.getElementById("output");            
+
+    function displayOutput(data) {
+        output.textContent = JSON.stringify(data, null, 2);
+    }
+
+    function clearOutput() {
+        output.textContent = "";
+    }
 
     // ✅ Заполняем список модуляций
     function populateModulations() {
@@ -116,6 +125,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
+    channelListSelect.addEventListener("change", () => {
+        let selectedChannel = document.getElementById("channelListSelect").value;
+        let findOverlapBtn = document.getElementById("findOverlapBtn");
+    
+        findOverlapBtn.disabled = !selectedChannel; // Разблокируем кнопку, если выбран канал
+        console.log("Выбран канал:", selectedChannel); // Отладочный вывод в консоль
+    });
+
     // ✅ Обработчик кнопки "Get Metadata"
     getMetadataBtn.addEventListener("click", () => {
         let selectedModulation = modulationSelect.value;
@@ -124,6 +141,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (selectedModulation && selectedRange && selectedBand) {
             let metadata = fpvDataManager.getBandMetadata(selectedModulation, selectedRange, selectedBand);
             output.textContent = JSON.stringify(metadata, null, 2);
+        }
+    });
+
+    findOverlapBtn.addEventListener("click", () => {
+        let selectedModulation = modulationSelect.value;
+        let selectedRange = bandRangeSelect.value;
+        let selectedBand = bandListSelect.value;
+        let selectedChannel = channelListSelect.value;
+
+        if (selectedModulation && selectedRange && selectedBand && selectedChannel) {
+            clearOutput();
+            let channelFrequency = fpvDataManager.getChannelList(selectedModulation, selectedRange, selectedBand)[selectedChannel];
+
+            output.textContent = `Band: ${selectedBand}\nChannel: ${selectedChannel}\nFrequency: ${channelFrequency} MHz\nChecking...`;
         }
     });
 
