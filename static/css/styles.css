@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 /* Сбрасываем отступы и выбираем шрифт */
 body {
     margin: 0;
@@ -8,8 +12,16 @@ body {
     background-color: black;
     color: cyan;
     text-align: center;
-    overflow: hidden; /* Отключаем прокрутку */
+    overflow: hidden; 
 }
+
+html, body {
+    height: 100%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Для Internet Explorer и Edge */
+    scrollbar-width: none; /* Для Firefox */
+}
+
 
 /* Контейнер для анимации "Матрицы" */
 .matrix-overlay {
@@ -120,6 +132,68 @@ select:disabled {
     cursor: not-allowed;
     box-shadow: none;
 }
+
+#channelVisualization {
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.channel-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.band-name {
+    width: 150px;
+    text-align: right;
+    margin-right: 10px;
+    color: cyan;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.channel-block {
+    width: 36px;
+    height: 28px;
+    margin: 2px;
+    border-radius: 3px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid cyan;
+    transition: transform 0.2s ease-in-out;
+}
+
+.channel-block:hover {
+    transform: scale(1.2);
+}
+
+.selected { background-color: cyan !important; color: black; font-weight: bold; border: 2px solid lime; }
+.safe { background-color: green; color: white; }
+.close { background-color: yellow; color: black; }
+.medium { background-color: orange; color: black; }
+.critical { background-color: red; color: white; }
+.transparent { background-color: rgba(255, 255, 255, 0.1); border: 1px dashed rgba(255, 255, 255, 0.1); }
+
+.tooltip {
+    position: absolute;
+    background-color: cyan;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Share Tech Mono', monospace;
+    box-shadow: 0 0 10px cyan;
+    display: none;
+    pointer-events: none;
+    z-index: 1000;
+}
+
 
 /* Стиль блока вывода */
 #output {

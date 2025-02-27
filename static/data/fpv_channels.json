@@ -1,7 +1,8 @@
 {
     "Analog": {
         "5.8GHz": {
-            "Band A (Boscam)": {
+            "Band A": {
+                "bandname": "Band A (Boscam)",
                 "region": "FCC/CE",
                 "bandwidth": 20,
                 "channels": {
@@ -15,7 +16,8 @@
                     "8": 5725
                 }
             },
-            "Band B (Boscam)": {
+            "Band B": {
+                "bandname": "Band B (Boscam)",
                 "region": "FCC/CE",
                 "bandwidth": 20,
                 "channels": {
@@ -29,7 +31,8 @@
                     "8": 5866
                 }
             },
-            "Band E (Boscam)": {
+            "Band E": {
+                "bandname": "Band E (Boscam)",
                 "region": "FCC/CE",
                 "bandwidth": 20,
                 "channels": {
@@ -43,7 +46,8 @@
                     "8": 5945
                 }
             },
-            "Band F (Airwave / FatShark)": {
+            "Band F": {
+                "bandname": "Band F (Airwave / FatShark)",
                 "region": "FCC/CE",
                 "bandwidth": 20,
                 "channels": {
@@ -57,7 +61,8 @@
                     "8": 5880
                 }
             },
-           "Raceband (ImmersionRC)": {
+           "Raceband": {
+            "bandname": "Raceband (ImmersionRC)",
              "region": "FCC/CE",
              "bandwidth": 20,
              "channels": {
@@ -71,7 +76,8 @@
                     "8": 5917
                 }
             },
-            "Band L (Low band)": {
+            "Band L": {
+                "bandname": "Band L (Low band)",
                 "region": "FCC/CE",
                 "bandwidth": 20,
                 "channels": {
@@ -87,7 +93,8 @@
             }
         },
         "3.3GHz": {
-            "Band A": {
+            "3.3 Band A": {
+                "bandname": "Band A",
                 "region": null,
                 "bandwidth": 20,
                 "channels": {
@@ -101,7 +108,8 @@
                     "8": 3495
                 }
             },
-            "Band B": {
+            "3.3 Band B": {
+                "bandname": "Band B",
                 "region": null,
                 "bandwidth": 20,
                 "channels": {
@@ -117,7 +125,8 @@
             }
         },
         "2.4GHz": {
-            "Standard": {
+            "2.4 Standard": {
+                "bandname": "Standard",
                 "region": "FCC/CE",
                 "bandwidth": 17,
                 "channels": {
@@ -131,7 +140,8 @@
                     "8": 2510
                 }
             },
-            "TBS Crossfire Video": {
+            "2.4 TBS Crossfire": {
+                "bandname": "TBS Crossfire Video",
                 "region": "FCC/CE",
                 "bandwidth": 17,
                 "channels": {
@@ -144,7 +154,8 @@
             }
         },
         "1.3GHz": {
-            "Long Range": {
+            "1.3 Long Range": {
+                "bandname": "Long Range",
                 "region": "FCC/CE",
                 "bandwidth": 18,
                 "channels": {
@@ -160,7 +171,8 @@
             }
         },
         "900MHz": {
-          "Low Frequency FPV": {
+          "900 Low Freq FPV": {
+            "bandname": "Low Frequency FPV",
             "region": "FCC/CE",
             "bandwidth": 10,
             "channels": {
@@ -175,7 +187,8 @@
     },
     "Digital": {
         "5.8 DJI FPV": {
-            "CE Mode": {
+            "DJI FPV CE Mode": {
+                "bandname": "CE Mode",
                 "region": "CE",
                 "bandwidth": 20,
                 "channels": {
@@ -185,7 +198,8 @@
                     "4": 5878
                 }
             },
-          "FCC Mode": {
+          "DJI FPV FCC Mode": {
+            "bandname": "FCC Mode",
             "region": "FCC",
             "bandwidth": 20,
             "channels": {
@@ -199,7 +213,8 @@
                 "8": 5945,
                 "9": 5960
             },
-            "SRD Mode": {
+            "DJI FPV SRD Mode": {
+                "bandname": "SRD Mode",
                 "region": "CE",
                 "bandwidth": 20,
                 "channels": {
@@ -209,7 +224,8 @@
                     "4": 5839
                 }
             },
-            "FCC Unlocked": {
+            "DJI FPV FCC Un": {
+                "bandname": "FCC Unlocked",
                 "region": "FCC",
                 "bandwidth": 20,
                 "channels": {
@@ -229,7 +245,8 @@
         }
         },
         "2.4 DJI FPV": {
-        "CE Mode": {
+        "2.4 DJI FPV CE Mode": {
+            "bandname": "CE Mode",
             "region": "CE",
             "bandwidth": 20,
             "channels": {
@@ -239,7 +256,8 @@
                 "4": 2475
             }
         },
-        "FCC Unlocked": {
+        "2.4 DJI FPV FCC Un": {
+            "bandname": "FCC Unlocked",
             "region": "FCC",
             "bandwidth": 20,
             "channels": {
@@ -255,7 +273,8 @@
         }
         },
         "HDZero": {
-        "CE Mode": {
+        "HDZero CE Mode": {
+            "bandname": "CE Mode",
             "region": "CE",
             "bandwidth": 20,
             "channels": {
@@ -265,7 +284,8 @@
                 "4": 5878
             }
         },
-        "FCC Mode": {
+        "HDZero FCC Mode": {
+            "bandname": "FCC Mode",
             "region": "FCC",
             "bandwidth": 20,
             "channels": {
@@ -280,7 +300,8 @@
                 "9": 5960
             }
         },
-        "FCC Unlocked": {
+        "HDZero FCC Unlocked": {
+            "bandname": "FCC Unlocked",
             "region": "FCC",
             "bandwidth": 20,
             "channels": {
@@ -300,7 +321,8 @@
         }
         },
         "Walksnail Avatar": {
-        "Standard": {
+        "Walks Avatar Stand": {
+            "bandname": "Standard",
             "region": "FCC/CE",
             "bandwidth": 20,
             "channels": {
@@ -311,7 +333,8 @@
                 "5": 5878
             }
         },
-        "FCC Mode": {
+        "Walks Avatar FCC Mode": {
+            "bandname": "FCC Mode",
             "region": "FCC",
             "bandwidth": 20,
             "channels": {
@@ -326,7 +349,8 @@
                 "9": 5960
             }
         },
-        "FCC Unlocked": {
+        "Walks Avatar FCC Un": {
+            "bandname": "FCC Unlocked",
             "region": "FCC",
             "bandwidth": 20,
             "channels": {

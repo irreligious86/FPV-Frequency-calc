@@ -214,34 +214,178 @@ document.addEventListener("DOMContentLoaded", async () => {
                     }
                 }
             }
+            
+            // 🛠️ Вызываем визуализацию после обработки кнопки
+            function visualizeBands(overlaps) {
+                let container = document.getElementById("channelVisualization");
+                container.innerHTML = ""; // Очищаем предыдущий вывод
+            
+                let bands = {};
+            
+                // Сортируем каналы по бендам
+                overlaps.forEach(channel => {
+                    if (!bands[channel.band]) {
+                        bands[channel.band] = [];
+                    }
+                    bands[channel.band].push(channel);
+                });
+            
+                for (let band in bands) {
+                    let row = document.createElement("div");
+                    row.classList.add("channel-row");
+            
+                    let bandLabel = document.createElement("div");
+                    bandLabel.classList.add("band-name");
+                    bandLabel.textContent = band;
+                    row.appendChild(bandLabel);
+            
+                    let maxChannels = 12;
+                    let channelBlocks = Array(maxChannels).fill(null);
+            
+                    bands[band].forEach(channelData => {
+                        let channelIndex = parseInt(channelData.channel) - 1;
+                        if (channelIndex < maxChannels) {
+                            channelBlocks[channelIndex] = channelData;
+                        }
+                    });
+            
+                    channelBlocks.forEach(channelData => {
+                        let block = document.createElement("div");
+                        block.classList.add("channel-block");
+            
+                        if (channelData) {
+                            block.textContent = `${channelData.frequency}`;
+                            block.setAttribute("data-channel", channelData.channel);
+                            if (channelData.level === "🔴") block.classList.add("critical");
+                            else if (channelData.level === "🟠") block.classList.add("medium");
+                            else if (channelData.level === "🟡") block.classList.add("close");
+                            else block.classList.add("safe");
+                                // Добавляем всплывающую подсказку с номером канала
+                                createTooltip(block, `Channel ${channelData.channel}`);
+
+                        } else {
+                            block.classList.add("transparent");
+                        }
+            
+                        row.appendChild(block);
+                    });
+            
+                    container.appendChild(row);
+                }
+            }
+            
+            // 🛠️ Вызываем визуализацию после обработки кнопки
+            findOverlapBtn.addEventListener("click", () => {
+                let selectedModulation = modulationSelect.value;
+                let selectedRange = bandRangeSelect.value;
+                let selectedBand = bandListSelect.value;
+                let selectedChannel = channelListSelect.value;
+            
+                if (selectedModulation && selectedRange && selectedBand && selectedChannel) {
+                    clearOutput();
+            
+                    let bandData = fpvDataManager.getBandMetadata(selectedModulation, selectedRange, selectedBand);
+                    let channelFrequency = fpvDataManager.getChannelList(selectedModulation, selectedRange, selectedBand)[selectedChannel];
+                    let bandwidth = bandData.bandwidth || 20;
+            
+                    let selectedMin = channelFrequency - bandwidth / 2;
+                    let selectedMax = channelFrequency + bandwidth / 2;
+            
+                    let overlaps = [];
+            
+                    for (let modulation in fpvDataManager.data) {
+                        for (let range in fpvDataManager.data[modulation]) {
+                            for (let band in fpvDataManager.data[modulation][range]) {
+                                let bandMeta = fpvDataManager.getBandMetadata(modulation, range, band);
+                                let bandChannels = fpvDataManager.getChannelList(modulation, range, band);
+            
+                                for (let channel in bandChannels) {
+                                    let freq = bandChannels[channel];
+                                    let bandWidth = bandMeta.bandwidth || 20;
+                                    let minFreq = freq - bandWidth / 2;
+                                    let maxFreq = freq + bandWidth / 2;
+            
+                                    if (modulation === selectedModulation && range === selectedRange && band === selectedBand && channel === selectedChannel) {
+                                        continue;
+                                    }
+            
+                                    let overlapAmount = Math.min(selectedMax, maxFreq) - Math.max(selectedMin, minFreq);
+                                    let overlapPercentage = (overlapAmount / bandwidth) * 100;
+            
+                                    let level = "🟢";
+                                    if (overlapPercentage >= 10) level = "🔴";
+                                    else if (overlapPercentage > 0 || Math.abs(channelFrequency - freq) <= bandwidth / 2) level = "🟠";
+                                    else if (Math.abs(channelFrequency - freq) <= 1.5 * bandwidth) level = "🟡";
+            
+                                    overlaps.push({ modulation, range, band, channel, frequency: freq, bandwidth: bandWidth, level });
+                                }
+                            }
+                        }
+                    }
+
+                        // Тестовая функция для вывода текста в блок channelVisualization
+    function testVisualization() {
+        visualizationContainer.textContent = "Test Output: Visualization Updated";
+    }
+            
+                    visualizeBands(overlaps);
+                }
+            });
+            
+            
     
             // 📌 Формируем вывод
             let resultText = `🎯 Selected Channel:\n📡 ${selectedModulation} - ${selectedRange} - ${selectedBand} - CH${selectedChannel}: ${channelFrequency} MHz (BW: ${bandwidth} MHz)\n\n`;
     
             if (criticalOverlap.length > 0) {
                 resultText += `🔴 **Critical Interference (10%+ overlap):**\n`;
-                resultText += criticalOverlap.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - CH${o.channel}: ${o.frequency} MHz (BW: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
+                resultText += criticalOverlap.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - ${o.channel}: ${o.frequency} MHz (Width: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
             }
     
             if (mediumOverlap.length > 0) {
                 resultText += `🟠 **Medium Interference (<10% overlap or <50% distance):**\n`;
-                resultText += mediumOverlap.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - CH${o.channel}: ${o.frequency} MHz (BW: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
+                resultText += mediumOverlap.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - ${o.channel}: ${o.frequency} MHz (Width: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
             }
     
             if (closeNeighbor.length > 0) {
                 resultText += `🟡 **Close Neighboring Channels (50%-150% distance):**\n`;
-                resultText += closeNeighbor.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - CH${o.channel}: ${o.frequency} MHz (BW: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
+                resultText += closeNeighbor.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - ${o.channel}: ${o.frequency} MHz (Width: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
             }
     
             if (safeChannels.length > 0) {
                 resultText += `🟢 **Safe Channels (150%+ distance):**\n`;
-                resultText += safeChannels.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - CH${o.channel}: ${o.frequency} MHz (BW: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
+                resultText += safeChannels.map(o => `📡 ${o.modulation} - ${o.range} - ${o.band} - ${o.channel}: ${o.frequency} MHz (Width: ${o.bandwidth} MHz)`).join("\n") + "\n\n";
             }
     
             output.innerHTML = resultText;
-        }
+        }   
     });
     
+    function createTooltip(element, text) {
+        // Создаём div для подсказки
+        let tooltip = document.createElement("div");
+        tooltip.className = "tooltip";
+        tooltip.textContent = text;
+        document.body.appendChild(tooltip);
+    
+        // Обработчик события "наведение"
+        element.addEventListener("mouseover", (event) => {
+            tooltip.style.display = "block";
+            tooltip.style.left = event.pageX + 10 + "px";
+            tooltip.style.top = event.pageY + 10 + "px";
+        });
+    
+        // Обработчик перемещения курсора
+        element.addEventListener("mousemove", (event) => {
+            tooltip.style.left = event.pageX + 10 + "px";
+            tooltip.style.top = event.pageY + 10 + "px";
+        });
+    
+        // Обработчик ухода курсора
+        element.addEventListener("mouseout", () => {
+            tooltip.style.display = "none";
+        });
+    }
     
 
     // Запускаем начальное заполнение модуляций
