@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Сбрасываем отступы и выбираем шрифт */
 body {
     margin: 0;
     padding: 0;
@@ -7,24 +12,210 @@ body {
     background-color: black;
     color: cyan;
     text-align: center;
-    overflow: hidden;
+    overflow: hidden; 
 }
 
-/* Анимированный фон "Матрицы" */
+html, body {
+    height: 100%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Для Internet Explorer и Edge */
+    scrollbar-width: none; /* Для Firefox */
+}
+
+
+/* Контейнер для анимации "Матрицы" */
 .matrix-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -1; /* Помещаем за контент */
+}
+
+/* Основной контент */
+.content {
+    position: relative;
+    z-index: 2; /* Размещаем выше фоновой анимации */
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Заголовки */
+h1 {
+    font-size: 2.2em;
+    text-shadow: 0 0 15px cyan;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    text-shadow: 0 0 5px cyan;
+}
+
+/* Контейнер для выпадающих списков и кнопок */
+.selection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Стилизация кнопок */
+button {
+    background-color: transparent;
+    border: 2px solid cyan;
+    color: cyan;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px cyan;
+    width: 280px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: cyan;
+    color: black;
+    box-shadow: 0 0 20px cyan;
+}
+
+/* Заблокированные кнопки (недоступны, пока не сделан выбор) */
+button:disabled {
+    border: 2px solid gray;
+    color: gray;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.5;
+}
+
+label {
+    border: 5px solid rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .8);
+}
+
+/* Стилизация выпадающих списков */
+select {
+    padding: 10px;
+    font-size: 1em;
+    margin: 5px;
+    border: 2px solid cyan;
+    background-color: black;
+    color: cyan;
+    cursor: pointer;
+    box-shadow: 0 0 10px cyan;
+    width: 300px;
+    text-align: center;
+}
+
+/* Стиль заблокированных выпадающих списков */
+select:disabled {
+    border: 2px solid gray;
+    color: gray;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#channelVisualization {
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.channel-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.band-name {
+    width: 150px;
+    text-align: right;
+    margin-right: 10px;
+    color: cyan;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.channel-block {
+    width: 36px;
+    height: 28px;
+    margin: 2px;
+    border-radius: 3px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid cyan;
+    transition: transform 0.2s ease-in-out;
+}
+
+.channel-block:hover {
+    transform: scale(1.2);
+}
+
+.selected { background-color: cyan !important; color: black; font-weight: bold; border: 2px solid lime; }
+.safe { background-color: green; color: white; }
+.close { background-color: yellow; color: black; }
+.medium { background-color: orange; color: black; }
+.critical { background-color: red; color: white; }
+.transparent { background-color: rgba(255, 255, 255, 0.1); border: 1px dashed rgba(255, 255, 255, 0.1); }
+
+.tooltip {
+    position: absolute;
+    background-color: cyan;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Share Tech Mono', monospace;
+    box-shadow: 0 0 10px cyan;
+    display: none;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+
+/* Стиль блока вывода */
+#output {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid cyan;
+    background: rgba(0, 0, 0, 0.8);
+    color: cyan;
+    color: greenyellow;
+    box-shadow: 0 0 15px cyan;
+    width: 60%;
+    text-align: left;
+    font-size: 1.1em;
+    max-height: 300px;
+    overflow-y: auto; /* Прокрутка, если данных много */
 }
 
 /* FPV-дрон */
 .fpv-drone {
     position: fixed;
     top: 30%;
-    right: 5%;
+    right: -10%;
     width: 300px;
     height: 300px;
     transform: translate(-50%, -50%);
@@ -42,64 +233,4 @@ body {
 @keyframes droneTilt {
     0% { transform: translate(-50%, -50%) rotate(-1deg); }
     100% { transform: translate(-50%, -50%) rotate(1deg); }
-}
-
-/* Основной контент */
-.content {
-    position: relative;
-    z-index: 2;
-    margin-top: 20vh;
-}
-
-h1 {
-    font-size: 2em;
-    text-shadow: 0 0 10px cyan;
-}
-
-p {
-    font-size: 1.2em;
-    text-shadow: 0 0 5px cyan;
-}
-
-button {
-    background-color: transparent;
-    border: 2px solid cyan;
-    color: cyan;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 10px cyan;
-}
-
-button:hover {
-    background-color: cyan;
-    color: black;
-    box-shadow: 0 0 20px cyan;
-}
-
-
-/* Стиль контейнера для выпадающих списков */
-.dropdown-container {
-    margin: 20px auto;
-    text-align: center;
-}
-
-/* Стилизация выпадающих списков */
-select {
-    padding: 10px;
-    font-size: 1em;
-    margin: 10px;
-    border: 2px solid cyan;
-    background-color: black;
-    color: cyan;
-    cursor: pointer;
-    box-shadow: 0 0 10px cyan;
-}
-
-select:disabled {
-    border: 2px solid gray;
-    color: gray;
-    cursor: not-allowed;
-    box-shadow: none;
 }
