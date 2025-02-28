@@ -1,4 +1,3 @@
-const fpvData = {
     "5.8GHz": {
         "Band A (Boscam)": {
             "region": "FCC/CE",
@@ -335,41 +334,3 @@ const fpvData = {
     }
     }
 }
-
-console.log("test");
-
-
-const FPVChannelData = {
-    data: fpvData,
-
-    // Получение информации о диапазоне частот
-    getBandInfo: function (frequencyBand) {
-        return this.data[frequencyBand] || "Band not found";
-    },
-
-    // Получение списка каналов для конкретного бенда
-    getBandChannels: function (frequencyBand, bandName) {
-        return this.data[frequencyBand]?.[bandName]?.channels || "Band not found";
-    },
-
-    // Получение частоты конкретного канала
-    getChannelFrequency: function (frequencyBand, bandName, channelNumber) {
-        return this.data[frequencyBand]?.[bandName]?.channels?.[channelNumber] || "Channel not found";
-    },
-
-    // Получение метаданных бенда
-    getBandMetadata: function (frequencyBand, bandName) {
-        let bandData = this.data[frequencyBand]?.[bandName];
-        return bandData ? {
-            region: bandData.region,
-            bandwidth: bandData.bandwidth,
-            modulation: bandData.modulation
-        } : "Band not found";
-    }
-};
-
-// ✅ Примеры использования:
-console.log(FPVChannelData.getBandInfo("5.8GHz"));  // Вернет всю инфу о 5.8GHz
-console.log(FPVChannelData.getBandChannels("5.8GHz", "Band A (Boscam)")); // Каналы
-console.log(FPVChannelData.getChannelFrequency("5.8GHz", "Band A (Boscam)", "3")); // Частота канала 3
-console.log(FPVChannelData.getBandMetadata("5.8GHz", "Raceband (ImmersionRC)")); // Метаданные бенда
