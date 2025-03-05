@@ -104,14 +104,6 @@
                     "7": 5573,
                     "8": 5613
                 }
-            },
-            {
-                "bandFrequency": "5.8",
-                "bandName": "",
-                "bandTitle": "X",
-                "region": "FCC/CE",
-                "channelWidth": "",
-                "channels": {}
             }
         ]
     },
