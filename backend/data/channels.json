@@ -1,10 +1,7 @@
-[
-    {
-        "modulation": "analog",
-        "frequencyRange": "5.X",
-        "bands": [
-            {
-                "bandFrequency": "5.8",
+{
+    "analog": {
+        "5G8": {
+            "A": {
                 "bandName": "Band A (Boscam)",
                 "bandTitle": "A",
                 "region": "FCC/CE",
@@ -20,8 +17,7 @@
                     "8": 5725
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "B": {
                 "bandName": "Band B (Boscam)",
                 "bandTitle": "B",
                 "region": "FCC/CE",
@@ -37,8 +33,7 @@
                     "8": 5866
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "E": {
                 "bandName": "Band E (Boscam)",
                 "bandTitle": "E",
                 "region": "FCC/CE",
@@ -54,8 +49,7 @@
                     "8": 5945
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "F": {
                 "bandName": "Band F (Airwave / FatShark)",
                 "bandTitle": "F",
                 "region": "FCC/CE",
@@ -71,8 +65,7 @@
                     "8": 5880
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "R": {
                 "bandName": "Raceband (ImmersionRC)",
                 "bandTitle": "R",
                 "region": "FCC/CE",
@@ -88,10 +81,107 @@
                     "8": 5917
                 }
             },
-            {
-                "bandFrequency": "5.3",
+            "H": {
+                "bandName": "",
+                "bandTitle": "",
+                "region": "",
+                "channelWidth": "",
+                "channels": {
+                    "1": "",
+                    "2": "",
+                    "3": "",
+                    "4": "",
+                    "5": "",
+                    "6": "",
+                    "7": "",
+                    "8": ""
+                }
+            },
+            "K": {
+                "bandName": "",
+                "bandTitle": "",
+                "region": "",
+                "channelWidth": "",
+                "channels": {
+                    "1": "",
+                    "2": "",
+                    "3": "",
+                    "4": "",
+                    "5": "",
+                    "6": "",
+                    "7": "",
+                    "8": ""
+                }
+            },
+            "Z": {
+                "bandName": "",
+                "bandTitle": "",
+                "region": "",
+                "channelWidth": "",
+                "channels": {
+                    "1": "",
+                    "2": "",
+                    "3": "",
+                    "4": "",
+                    "5": "",
+                    "6": "",
+                    "7": "",
+                    "8": ""
+                }
+            }
+        },
+        "5G3": {
+            "D": {
+                "bandName": "",
+                "bandTitle": "",
+                "region": "",
+                "channelWidth": "",
+                "channels": {
+                    "1": "",
+                    "2": "",
+                    "3": "",
+                    "4": "",
+                    "5": "",
+                    "6": "",
+                    "7": "",
+                    "8": ""
+                }
+            },
+            "U": {
+                "bandName": "",
+                "bandTitle": "",
+                "region": "",
+                "channelWidth": "",
+                "channels": {
+                    "1": "",
+                    "2": "",
+                    "3": "",
+                    "4": "",
+                    "5": "",
+                    "6": "",
+                    "7": "",
+                    "8": ""
+                }
+            },
+            "O": {
+                "bandName": "",
+                "bandTitle": "",
+                "region": "",
+                "channelWidth": "",
+                "channels": {
+                    "1": "",
+                    "2": "",
+                    "3": "",
+                    "4": "",
+                    "5": "",
+                    "6": "",
+                    "7": "",
+                    "8": ""
+                }
+            },
+            "LF": {
                 "bandName": "Band L (Low band)",
-                "bandTitle": "L",
+                "bandTitle": "LF",
                 "region": "FCC/CE",
                 "channelWidth": "20",
                 "channels": {
@@ -104,18 +194,65 @@
                     "7": 5573,
                     "8": 5613
                 }
-            }
-        ]
-    },
-    {
-        "modulation": "analog",
-        "frequencyRange": "3.3",
-        "bands": [
-            {
-                "bandFrequency": "3.3",
-                "bandName": "Band A",
-                "bandTitle": "A",
+            },
+            "LS": {
+                "bandName": "",
+                "bandTitle": "",
                 "region": "",
+                "channelWidth": "",
+                "channels": {
+                    "1": "",
+                    "2": "",
+                    "3": "",
+                    "4": "",
+                    "5": "",
+                    "6": "",
+                    "7": "",
+                    "8": ""
+                }
+            }
+
+
+        },
+        "4G9": {
+            "X": {
+                "bandName": "",
+                "bandTitle": "",
+                "region": "",
+                "channelWidth": "",
+                "channels": {
+                    "1": "",
+                    "2": "",
+                    "3": "",
+                    "4": "",
+                    "5": "",
+                    "6": "",
+                    "7": "",
+                    "8": ""
+                }
+            },
+            "J": {
+                "bandName": "",
+                "bandTitle": "",
+                "region": "",
+                "channelWidth": "",
+                "channels": {
+                    "1": "",
+                    "2": "",
+                    "3": "",
+                    "4": "",
+                    "5": "",
+                    "6": "",
+                    "7": "",
+                    "8": ""
+                }
+            }
+        },
+        "3G3": {
+            "A": {
+                "bandName": "3.3 Band A",
+                "bandTitle": "3.3_A",
+                "region": "FCC/CE",
                 "channelWidth": "20",
                 "channels": {
                     "1": 3320,
@@ -128,10 +265,9 @@
                     "8": 3495
                 }
             },
-            {
-                "bandFrequency": "3.3",
-                "bandName": "B",
-                "bandTitle": "Band B",
+            "B": {
+                "bandName": "3.3 Band B",
+                "bandTitle": "3.3_B",
                 "region": "FCC/CE",
                 "channelWidth": "20",
                 "channels": {
@@ -145,16 +281,11 @@
                     "8": 3480
                 }
             }
-        ]
-    },
-    {
-        "modulation": "analog",
-        "frequencyRange": "2.4",
-        "bands": [
-            {
-                "bandFrequency": "2.4",
-                "bandname": "Standard",
-                "bandTitle": "",
+        },
+        "2G4": {
+            "Standard": {
+                "bandName": "Standard",
+                "bandTitle": "2.4_Stand",
                 "region": "FCC/CE",
                 "channelWidth": "17",
                 "channels": {
@@ -168,10 +299,9 @@
                     "8": 2510
                 }
             },
-            {
-                "bandFrequency": "2.4",
-                "bandname": "TBS Crossfire Video",
-                "bandTitle": "",
+            "TBS": {
+                "bandName": "TBS Crossfire Video",
+                "bandTitle": "2.4_TBS",
                 "region": "FCC/CE",
                 "channelWidth": "17",
                 "channels": {
@@ -182,16 +312,11 @@
                     "5": 2435
                 }
             }
-        ]
-    },
-    {
-        "modulation": "analog",
-        "frequencyRange": "1.3",
-        "bands": [
-            {
-                "bandFrequency": "1.3",
-                "bandname": "Long Range",
-                "bandTitle": "",
+        },
+        "1G3": {
+            "LR": {
+                "bandName": "Long Range",
+                "bandTitle": "1.3_Long",
                 "region": "FCC/CE",
                 "channelWidth": "18",
                 "channels": {
@@ -205,16 +330,11 @@
                     "8": 1360
                 }
             }
-        ]
-    },
-    {
-        "modulation": "analog",
-        "frequencyRange": "900",
-        "bands": [
-            {
-                "bandFrequency": "900",
+        },
+        "900": {
+            "LF": {
                 "bandName": "Low Frequency FPV",
-                "bandTitle": "",
+                "bandTitle": "900_Low",
                 "region": "FCC/CE",
                 "channelWidth": "10",
                 "channels": {
@@ -225,16 +345,13 @@
                     "5": 940
                 }
             }
-        ]
+        }
     },
-    {
-        "modulation": "digital",
-        "frequencyRange": "5.8",
-        "bands": [
-            {
-                "bandFrequency": "5.8",
+    "digital": {
+        "5G8": {
+            "DJI_CE": {
                 "bandName": "DJI FPV CE Mode",
-                "bandTitle": "",
+                "bandTitle": "DJI_CE",
                 "region": "CE",
                 "channelWidth": "20",
                 "channels": {
@@ -244,10 +361,9 @@
                     "4": 5878
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "DJI_FCC": {
                 "bandName": "DJI FPV FCC Mode",
-                "bandTitle": "",
+                "bandTitle": "DJI_FCC",
                 "region": "FCC",
                 "channelWidth": "20",
                 "channels": {
@@ -262,10 +378,9 @@
                     "9": 5960
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "DJI_SRD": {
                 "bandName": "DJI FPV SRD Mode",
-                "bandTitle": "",
+                "bandTitle": "DJI_SRD",
                 "region": "CE",
                 "channelWidth": "20",
                 "channels": {
@@ -275,10 +390,9 @@
                     "4": 5839
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "DJI_FCC_U": {
                 "bandName": "DJI FPV FCC Unlcked",
-                "bandTitle": "",
+                "bandTitle": "DJI_FCC_U",
                 "region": "FCC",
                 "channelWidth": "20",
                 "channels": {
@@ -295,10 +409,9 @@
                     "11": 5925
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "HD_Zero_CE": {
                 "bandName": "HDZero CE Mode",
-                "bandTitle": "",
+                "bandTitle": "HD_Zero_CE",
                 "region": "CE",
                 "channelWidth": "20",
                 "channels": {
@@ -308,10 +421,9 @@
                     "4": 5878
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "HD_Zero_FCC": {
                 "bandName": "HDZero FCC Mode",
-                "bandTitle": "",
+                "bandTitle": "HD_Zero_FCC",
                 "region": "FCC",
                 "channelWidth": "20",
                 "channels": {
@@ -326,10 +438,9 @@
                     "9": 5960
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "HD_Zero_FCC_U": {
                 "bandName": "HDZero FCC Unlocked",
-                "bandTitle": "",
+                "bandTitle": "HD_Zero_FCC_U",
                 "region": "FCC",
                 "channelWidth": "20",
                 "channels": {
@@ -347,10 +458,9 @@
                     "12": 6040
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "Walksnail_Stand": {
                 "bandName": "Walksnail Avatar Standard",
-                "bandTitle": "",
+                "bandTitle": "Walksnail_Stand",
                 "region": "FCC/CE",
                 "channelWidth": "20",
                 "channels": {
@@ -361,10 +471,9 @@
                     "5": 5878
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "Walksnail_FCC": {
                 "bandName": "Walks Avatar FCC Mode",
-                "bandTitle": "",
+                "bandTitle": "Walksnail_FCC",
                 "region": "FCC",
                 "channels": {
                     "1": 5660,
@@ -378,10 +487,9 @@
                     "9": 5960
                 }
             },
-            {
-                "bandFrequency": "5.8",
+            "Walksnail_FCC_U": {
                 "bandName": "Walksnail Avatar FCC Unlocked",
-                "bandTitle": "",
+                "bandTitle": "Walksnail_FCC_U",
                 "region": "FCC",
                 "channelWidth": "20",
                 "channels": {
@@ -399,16 +507,11 @@
                     "12": 6040
                 }
             }
-        ]
-    },
-    {
-        "modulation": "digital",
-        "frequencyRange": "2.4",
-        "bands": [
-            {
-                "bandFrequency": "2.4",
+        },
+        "2G4": {
+            "DJI_CE": {
                 "bandName": "2.4 DJI FPV CE Mode",
-                "bandTitle": "",
+                "bandTitle": "2.4_DJI_CE",
                 "region": "CE",
                 "channelWidth": "20",
                 "channels": {
@@ -418,10 +521,9 @@
                     "4": 2475
                 }
             },
-            {
-                "bandFrequency": "2.4",
+            "DJI_FCC": {
                 "bandName": "2.4 DJI FPV FCC Unlocked",
-                "bandTitle": "",
+                "bandTitle": "2.4_DJI_FCC",
                 "region": "FCC",
                 "channelWidth": "20",
                 "channels": {
@@ -435,6 +537,6 @@
                     "8": 2480
                 }
             }
-        ]
+        }
     }
-]
+}
