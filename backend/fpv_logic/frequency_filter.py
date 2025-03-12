@@ -1,6 +1,13 @@
 class FrequencyFilter:
     def __init__(self, data):
         self.data = data
+        
+          # 🔍 Отладочный вывод
+        print("DEBUG: Тип данных в self.data:", type(self.data))  # Покажет, список или словарь
+        if isinstance(self.data, list):
+            print("Данные загружены как список! Первые элементы:", self.data[:2])  # Покажет первые 2 элемента
+        elif isinstance(self.data, dict):
+            print("Данные загружены как словарь. Ключи:", list(self.data.keys()))  # Покажет доступные ключи
 
     def filter_by_region(self, region: str):
         """ Фильтрует частотные группы по региону (FCC, CE и т. д.). """
@@ -18,6 +25,7 @@ class FrequencyFilter:
             rng: {
                 band: details for band, details in bands.items() if details.get("modulation") == modulation
             }
+            
             for rng, bands in self.data.items()
             if any(details.get("modulation") == modulation for details in bands.values())
         }

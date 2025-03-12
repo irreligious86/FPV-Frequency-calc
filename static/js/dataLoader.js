@@ -1,11 +1,29 @@
-let cachedData = null;
+export const DataLoader = {
+    data: {},
 
-export async function getChannelsData() {
-    if (!cachedData) {
-        console.log("Загружаем данные с сервера...");
-        const response = await fetch('/get_channels');
-        cachedData = await response.json();
-        console.log("Данные загружены:", cachedData);
+    async loadData() {
+        try {
+            // Проверяем, есть ли данные в sessionStorage
+            const cachedData = sessionStorage.getItem("fpvData");
+            if (cachedData) {
+                console.log("Данные загружены из sessionStorage");
+                this.data = JSON.parse(cachedData);
+                return this.data;
+            }
+
+            // Если данных нет, делаем запрос на сервер
+            console.log("Запрос данных с сервера...");
+            const response = await fetch("/api/data");
+            this.data = await response.json();
+
+            // Сохраняем в sessionStorage
+            sessionStorage.setItem("fpvData", JSON.stringify(this.data));
+
+            console.log("Данные загружены:", this.data);
+            return this.data;
+        } catch (error) {
+            console.error("Ошибка загрузки данных:", error);
+            return null;
+        }
     }
-    return cachedData;
-}
+};

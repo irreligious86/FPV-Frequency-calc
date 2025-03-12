@@ -1,8 +1,10 @@
 import sys
 import os
+
+sys.stdout.reconfigure(encoding='utf-8')  # Устанавливаем UTF-8 для вывода
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, send_from_directory
 from fpv_logic.data_loader import DataLoader
 from fpv_logic.frequency_filter import FrequencyFilter
 from fpv_logic.interference import InterferenceAnalyzer
@@ -85,7 +87,7 @@ def analyze_interference():
 @app.route("/favicon.ico")
 def favicon():
     """ Заглушка для favicon.ico, чтобы избежать ошибки 404 """
-    return "", 204  # Код 204 - "Нет содержимого"
+    return send_from_directory("static/img", "favicon.ico", mimetype="image/x-icon")
 
 if __name__ == "__main__":
     app.run(debug=True)

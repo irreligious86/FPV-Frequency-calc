@@ -13,6 +13,10 @@ class InterferenceAnalyzer:
 
     def analyze_interference(self, range_name: str, band: str, selected_channel: str):
         """ Анализирует возможное пересечение каналов """
+        
+        print("Тип данных:", type(self.data))
+        print("Содержимое данных:", self.data[:2])  # Выведет первые 2 элемента
+        
         if range_name not in self.data or band not in self.data[range_name]:
             return {"error": "Диапазон или группа не найдены"}
         
