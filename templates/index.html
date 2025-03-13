@@ -62,12 +62,44 @@
     <!-- Основной контент -->
     <div class="content">
         <h1>FPV Frequency Analyzer</h1>
-        <p>Analyze the proximity of digital and analog FPV drone channels.</p>
+        <p>Select your video system type to analyze frequencies.</p>
+        
+        <!-- Чекбоксы для выбора типа каналов -->
+        <div class="system-type-selection">
+            <label class="checkbox-container">
+                <input type="checkbox" id="analogChannels">
+                <span class="checkmark"></span>
+                Analog Channels
+            </label>
+            
+            <label class="checkbox-container">
+                <input type="checkbox" id="digitalChannels">
+                <span class="checkmark"></span>
+                Digital Channels
+            </label>
+        </div>
+
+        <!-- Выпадающий список для выбора диапазона (изначально скрыт) -->
+        <div id="bandSelection" class="band-selection hidden">
+            <select id="bandSelect">
+                <option value="" disabled selected>Select Band</option>
+            </select>
+        </div>
+
+        <!-- Контейнер для выбора каналов (изначально скрыт) -->
+        <div id="channelSelection" class="channel-selection hidden">
+            <div class="channels-grid" id="channelsGrid">
+                <!-- Сюда будут динамически добавляться радиокнопки каналов -->
+            </div>
+        </div>
     </div>
 
+    <!-- Матрица загружается как обычный скрипт -->
     <script src="{{ url_for('static', filename='js/matrix.js') }}"></script>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}" type="module"></script>
+    <!-- Все остальные скрипты загружаются как модули -->
+    <script type="module" src="{{ url_for('static', filename='js/fpvAnalyzer.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/channelVisualizer.js') }}"></script>
 
 </body>
 
