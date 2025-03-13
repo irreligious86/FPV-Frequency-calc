@@ -2,10 +2,10 @@
     "analog": {
         "5G8": {
             "A": {
-                "bandName": "Band A (Boscam)",
+                "bandName": "Band A (TBS/RangeVideo/SpyHawk)",
                 "bandTitle": "A",
                 "region": "FCC/CE",
-                "channelWidth": "20",
+                "channelWidth": "30",
                 "channels": {
                     "1": 5865,
                     "2": 5845,
@@ -18,10 +18,10 @@
                 }
             },
             "B": {
-                "bandName": "Band B (Boscam)",
+                "bandName": "Band B (FlyCamOne Europe)",
                 "bandTitle": "B",
                 "region": "FCC/CE",
-                "channelWidth": "20",
+                "channelWidth": "30",
                 "channels": {
                     "1": 5733,
                     "2": 5752,
@@ -34,10 +34,10 @@
                 }
             },
             "E": {
-                "bandName": "Band E (Boscam)",
+                "bandName": "Band E (HobbyKing/Foxtech)",
                 "bandTitle": "E",
                 "region": "FCC/CE",
-                "channelWidth": "20",
+                "channelWidth": "30",
                 "channels": {
                     "1": 5705,
                     "2": 5685,
@@ -50,10 +50,10 @@
                 }
             },
             "F": {
-                "bandName": "Band F (Airwave / FatShark)",
+                "bandName": "Band F (ImmersionRC/Iftron)",
                 "bandTitle": "F",
                 "region": "FCC/CE",
-                "channelWidth": "20",
+                "channelWidth": "30",
                 "channels": {
                     "1": 5740,
                     "2": 5760,
@@ -69,7 +69,7 @@
                 "bandName": "Raceband (ImmersionRC)",
                 "bandTitle": "R",
                 "region": "FCC/CE",
-                "channelWidth": "20",
+                "channelWidth": "30",
                 "channels": {
                     "1": 5658,
                     "2": 5695,
@@ -82,19 +82,19 @@
                 }
             },
             "H": {
-                "bandName": "",
-                "bandTitle": "",
-                "region": "",
-                "channelWidth": "",
+                "bandName": "Band H (High band)",
+                "bandTitle": "H",
+                "region": "FCC/CE",
+                "channelWidth": "30",
                 "channels": {
-                    "1": "",
-                    "2": "",
-                    "3": "",
-                    "4": "",
-                    "5": "",
-                    "6": "",
-                    "7": "",
-                    "8": ""
+                    "1": 5653,
+                    "2": 5693,
+                    "3": 5733,
+                    "4": 5773,
+                    "5": 5813,
+                    "6": 5853,
+                    "7": 5893,
+                    "8": 5933
                 }
             },
             "K": {
@@ -132,58 +132,74 @@
         },
         "5G3": {
             "D": {
-                "bandName": "",
-                "bandTitle": "",
-                "region": "",
-                "channelWidth": "",
+                "bandName": "Band D (Diatone)",
+                "bandTitle": "D",
+                "region": "ILLEGAL",
+                "channelWidth": "30",
                 "channels": {
-                    "1": "",
-                    "2": "",
-                    "3": "",
-                    "4": "",
-                    "5": "",
-                    "6": "",
-                    "7": "",
-                    "8": ""
+                    "1": 5362,
+                    "2": 5399,
+                    "3": 5436,
+                    "4": 5473,
+                    "5": 5510,
+                    "6": 5547,
+                    "7": 5584,
+                    "8": 5621
                 }
             },
             "U": {
-                "bandName": "",
-                "bandTitle": "",
-                "region": "",
-                "channelWidth": "",
+                "bandName": "Band U (Ultra Low)",
+                "bandTitle": "U",
+                "region": "ILLEGAL",
+                "channelWidth": "30",
                 "channels": {
-                    "1": "",
-                    "2": "",
-                    "3": "",
-                    "4": "",
-                    "5": "",
-                    "6": "",
-                    "7": "",
-                    "8": ""
+                    "1": 5325,
+                    "2": 5348,
+                    "3": 5366,
+                    "4": 5384,
+                    "5": 5402,
+                    "6": 5420,
+                    "7": 5438,
+                    "8": 5456
                 }
             },
             "O": {
-                "bandName": "",
-                "bandTitle": "",
-                "region": "",
-                "channelWidth": "",
+                "bandName": "Band O (Old Low)",
+                "bandTitle": "O",
+                "region": "ILLEGAL",
+                "channelWidth": "30",
                 "channels": {
-                    "1": "",
-                    "2": "",
-                    "3": "",
-                    "4": "",
-                    "5": "",
-                    "6": "",
-                    "7": "",
-                    "8": ""
+                    "1": 5474,
+                    "2": 5492,
+                    "3": 5510,
+                    "4": 5528,
+                    "5": 5546,
+                    "6": 5564,
+                    "7": 5582,
+                    "8": 5600
+                }
+            },
+            "L": {
+                "bandName": "Band L (Low band)",
+                "bandTitle": "L",
+                "region": "ILLEGAL",
+                "channelWidth": "30",
+                "channels": {
+                    "1": 5333,
+                    "2": 5373,
+                    "3": 5413,
+                    "4": 5453,
+                    "5": 5493,
+                    "6": 5533,
+                    "7": 5573,
+                    "8": 5613
                 }
             },
             "LF": {
                 "bandName": "Band L (Low band)",
                 "bandTitle": "LF",
                 "region": "FCC/CE",
-                "channelWidth": "20",
+                "channelWidth": "30",
                 "channels": {
                     "1": 5333,
                     "2": 5373,
@@ -211,46 +227,44 @@
                     "8": ""
                 }
             }
-
-
         },
         "4G9": {
             "X": {
-                "bandName": "",
-                "bandTitle": "",
-                "region": "",
-                "channelWidth": "",
+                "bandName": "Band X (4.9GHz)",
+                "bandTitle": "X",
+                "region": "FCC/CE",
+                "channelWidth": "20",
                 "channels": {
-                    "1": "",
-                    "2": "",
-                    "3": "",
-                    "4": "",
-                    "5": "",
-                    "6": "",
-                    "7": "",
-                    "8": ""
+                    "1": 4940,
+                    "2": 4960,
+                    "3": 4980,
+                    "4": 5000,
+                    "5": 5020,
+                    "6": 5040,
+                    "7": 5060,
+                    "8": 5080
                 }
             },
             "J": {
-                "bandName": "",
-                "bandTitle": "",
-                "region": "",
-                "channelWidth": "",
+                "bandName": "Band J (4.9GHz)",
+                "bandTitle": "J",
+                "region": "FCC/CE",
+                "channelWidth": "20",
                 "channels": {
-                    "1": "",
-                    "2": "",
-                    "3": "",
-                    "4": "",
-                    "5": "",
-                    "6": "",
-                    "7": "",
-                    "8": ""
+                    "1": 4920,
+                    "2": 4940,
+                    "3": 4960,
+                    "4": 4980,
+                    "5": 5000,
+                    "6": 5020,
+                    "7": 5040,
+                    "8": 5060
                 }
             }
         },
         "3G3": {
             "A": {
-                "bandName": "3.3 Band A",
+                "bandName": "3.3 Band A (Fatshark)",
                 "bandTitle": "3.3_A",
                 "region": "FCC/CE",
                 "channelWidth": "20",
@@ -266,7 +280,7 @@
                 }
             },
             "B": {
-                "bandName": "3.3 Band B",
+                "bandName": "3.3 Band B (ImmersionRC)",
                 "bandTitle": "3.3_B",
                 "region": "FCC/CE",
                 "channelWidth": "20",
@@ -284,7 +298,7 @@
         },
         "2G4": {
             "Standard": {
-                "bandName": "Standard",
+                "bandName": "Standard 2.4GHz (Common)",
                 "bandTitle": "2.4_Stand",
                 "region": "FCC/CE",
                 "channelWidth": "17",
@@ -300,7 +314,7 @@
                 }
             },
             "TBS": {
-                "bandName": "TBS Crossfire Video",
+                "bandName": "TBS Crossfire Video (Team BlackSheep)",
                 "bandTitle": "2.4_TBS",
                 "region": "FCC/CE",
                 "channelWidth": "17",
@@ -349,6 +363,86 @@
     },
     "digital": {
         "5G8": {
+            "DJI_25": {
+                "bandName": "DJI FPV/Avatar 25mbps",
+                "bandTitle": "DJI25",
+                "region": "FCC",
+                "channelWidth": "20",
+                "channels": {
+                    "1": 5660,
+                    "2": 5695,
+                    "3": 5735,
+                    "4": 5770,
+                    "5": 5805,
+                    "6": 5878,
+                    "7": 5914,
+                    "8": 5839
+                }
+            },
+            "DJI_25_CE": {
+                "bandName": "DJI FPV/Avatar 25mbps CE",
+                "bandTitle": "DJI25CE",
+                "region": "CE",
+                "channelWidth": "20",
+                "channels": {
+                    "1": 5735,
+                    "2": 5770,
+                    "3": 5805,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0,
+                    "7": 0,
+                    "8": 5839
+                }
+            },
+            "DJI_50": {
+                "bandName": "DJI FPV/Avatar 50mbps",
+                "bandTitle": "DJI50",
+                "region": "FCC/CE",
+                "channelWidth": "40",
+                "channels": {
+                    "1": 5695,
+                    "2": 5770,
+                    "3": 5878,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0,
+                    "7": 0,
+                    "8": 5839
+                }
+            },
+            "HDZ": {
+                "bandName": "HDZero",
+                "bandTitle": "HDZ",
+                "region": "FCC",
+                "channelWidth": "27",
+                "channels": {
+                    "1": 5658,
+                    "2": 5695,
+                    "3": 5732,
+                    "4": 5769,
+                    "5": 5806,
+                    "6": 5843,
+                    "7": 5880,
+                    "8": 5917
+                }
+            },
+            "HDZ_CE": {
+                "bandName": "HDZero CE",
+                "bandTitle": "HDZCE",
+                "region": "CE",
+                "channelWidth": "27",
+                "channels": {
+                    "1": 5732,
+                    "2": 5769,
+                    "3": 5806,
+                    "4": 5843,
+                    "5": 0,
+                    "6": 0,
+                    "7": 0,
+                    "8": 0
+                }
+            },
             "DJI_CE": {
                 "bandName": "DJI FPV CE Mode",
                 "bandTitle": "DJI_CE",
@@ -391,7 +485,7 @@
                 }
             },
             "DJI_FCC_U": {
-                "bandName": "DJI FPV FCC Unlcked",
+                "bandName": "DJI FPV FCC Unlocked",
                 "bandTitle": "DJI_FCC_U",
                 "region": "FCC",
                 "channelWidth": "20",
@@ -472,9 +566,10 @@
                 }
             },
             "Walksnail_FCC": {
-                "bandName": "Walks Avatar FCC Mode",
+                "bandName": "Walksnail Avatar FCC Mode",
                 "bandTitle": "Walksnail_FCC",
                 "region": "FCC",
+                "channelWidth": "20",
                 "channels": {
                     "1": 5660,
                     "2": 5700,
