@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 
 <head>
     <meta charset="UTF-8">
@@ -10,65 +10,63 @@
 </head>
 
 <body>
-
     <!-- Анимированный фон "Матрицы" -->
     <div class="matrix-overlay">
         <canvas id="matrixCanvas"></canvas>
     </div>
 
-    <!-- FPV-дрон с анимацией -->
-    <div class="fpv-drone">
-        <svg viewBox="0 0 300 300">
-            <!-- Центральный корпус -->
-            <rect x="130" y="130" width="40" height="40" fill="none" stroke="cyan" stroke-width="2" />
-
-            <!-- Рама -->
-            <line x1="100" y1="100" x2="200" y2="200" stroke="cyan" stroke-width="2" />
-            <line x1="100" y1="200" x2="200" y2="100" stroke="cyan" stroke-width="2" />
-
-            <!-- Пропеллерные площадки -->
-            <circle cx="70" cy="70" r="20" stroke="cyan" stroke-width="2" fill="none" />
-            <circle cx="230" cy="70" r="20" stroke="cyan" stroke-width="2" fill="none" />
-            <circle cx="70" cy="230" r="20" stroke="cyan" stroke-width="2" fill="none" />
-            <circle cx="230" cy="230" r="20" stroke="cyan" stroke-width="2" fill="none" />
-
-            <!-- Пропеллеры (будут вращаться через JS) -->
-            <g class="propeller" id="prop1">
-                <circle cx="70" cy="70" r="5" fill="cyan" />
-                <line x1="55" y1="70" x2="85" y2="70" stroke="cyan" stroke-width="2" />
-                <line x1="70" y1="55" x2="70" y2="85" stroke="cyan" stroke-width="2" />
-            </g>
-
-            <g class="propeller" id="prop2">
-                <circle cx="230" cy="70" r="5" fill="cyan" />
-                <line x1="215" y1="70" x2="245" y2="70" stroke="cyan" stroke-width="2" />
-                <line x1="230" y1="55" x2="230" y2="85" stroke="cyan" stroke-width="2" />
-            </g>
-
-            <g class="propeller" id="prop3">
-                <circle cx="70" cy="230" r="5" fill="cyan" />
-                <line x1="55" y1="230" x2="85" y2="230" stroke="cyan" stroke-width="2" />
-                <line x1="70" y1="215" x2="70" y2="245" stroke="cyan" stroke-width="2" />
-            </g>
-
-            <g class="propeller" id="prop4">
-                <circle cx="230" cy="230" r="5" fill="cyan" />
-                <line x1="215" y1="230" x2="245" y2="230" stroke="cyan" stroke-width="2" />
-                <line x1="230" y1="215" x2="230" y2="245" stroke="cyan" stroke-width="2" />
-            </g>
-        </svg>
+    <div class="content-header">
+        <h1>FPV Frequency Analyzer</h1>
     </div>
 
     <!-- Основной контент -->
     <div class="content">
-        <h1>FPV Frequency Analyzer</h1>
         <p>Analyze the proximity of digital and analog FPV drone channels.</p>
+        <div class="content-inner">
+            <div class="content-block">
+                <div class="filter-container">
+                    <h3 class="filter-title">Band Type Filter</h3>
+                    <div class="mode-switch">
+                        <label class="switch">
+                            <input type="checkbox" id="calculation-mode-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="mode-label">Calculation mode:</span>
+                        <span class="mode-description" data-mode="simple">Quick</span>
+                    </div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" id="analogCheck">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Analog</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="filter-checkbox" id="digitalCheck">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Digital</span>
+                        </label>
+                    </div>
+                    <button class="analyze-btn" id="analyzeBtn" disabled>Analyze</button>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="frequency-table hidden" id="frequencyTable">
+                    <!-- Таблица будет заполняться динамически -->
+                </div>
+            </div>
+            <div class="content-block">  </div>
+            <div class="content-block">  </div>
+            <div class="content-block">  </div>
+            <div class="content-block">  </div>
+            <div class="content-block">  </div>
+            <div class="controls-container">
+                <!-- Удаляем дубликат переключателя -->
+            </div>
+        </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/matrix.js') }}"></script>
-
-    <script src="{{ url_for('static', filename='js/script.js') }}" type="module"></script>
-
+    <!-- Подключение скриптов -->
+    <script src="{{ url_for('static', filename='js/script.js') }}" type="module" defer></script>
 </body>
 
 </html>
