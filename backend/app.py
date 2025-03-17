@@ -1,16 +1,26 @@
 import sys
 import os
 
+import os
+
+print("FLASK_ENV:", os.getenv("FLASK_ENV"))
+print("SECRET_KEY:", os.getenv("SECRET_KEY"))
+
+
 # Чиним кодировку вывода, чтобы сервер не плевался от кириллических символов
 sys.stdout.reconfigure(encoding='utf-8')  
 
 from flask import Flask, jsonify, request, render_template, send_from_directory
 from fpv_logic.data_loader import DataLoader
 from fpv_logic.interference import InterferenceAnalyzer
+from backend.config import Config  # Импортируем настройки
+
 
 # 🏗️ Создаем Flask-приложение
 # static_folder и template_folder вынесены на уровень выше, чтобы не путаться
 app = Flask(__name__, static_folder="../static", template_folder="../templates")
+app.config.from_object(Config)  # Применяем настройки
+
 
 # 📥 Загружаем данные ОДИН раз за запуск сервера (иначе будет боль)
 loader = DataLoader()
