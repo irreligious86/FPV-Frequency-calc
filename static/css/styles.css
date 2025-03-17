@@ -21,6 +21,7 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+
 /* Контейнер для анимации "Матрицы" */
 .matrix-overlay {
     position: fixed;
@@ -80,6 +81,7 @@ body::-webkit-scrollbar {
     margin-bottom: 10px;
 }
 
+/* Заголовки */
 h1 {
     font-size: 2em;
     text-shadow: 0 0 14px cyan, 3px 3px 2px black, 5px 5px 3px black, 7px 7px 4px black;
@@ -98,11 +100,13 @@ button:not(.analyze-btn) {
     background-color: transparent;
     border: 2px solid cyan;
     color: cyan;
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 1.2em;
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 0 0 10px cyan;
+    width: 280px;
+    text-transform: uppercase;
 }
 
 button:not(.analyze-btn):hover {
@@ -111,24 +115,35 @@ button:not(.analyze-btn):hover {
     box-shadow: 0 0 20px cyan;
 }
 
-/* Контейнер для выпадающих списков */
-.dropdown-container {
-    margin: 20px auto;
-    text-align: center;
+/* Заблокированные кнопки (недоступны, пока не сделан выбор) */
+button:disabled {
+    border: 2px solid gray;
+    color: gray;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.5;
+}
+
+label {
+    border: 5px solid rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .8);
 }
 
 /* Стилизация выпадающих списков */
 select {
     padding: 10px;
     font-size: 1em;
-    margin: 10px;
+    margin: 5px;
     border: 2px solid cyan;
     background-color: black;
     color: cyan;
     cursor: pointer;
     box-shadow: 0 0 10px cyan;
+    width: 300px;
+    text-align: center;
 }
 
+/* Стиль заблокированных выпадающих списков */
 select:disabled {
     border: 2px solid gray;
     color: gray;
