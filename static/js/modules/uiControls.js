@@ -140,13 +140,13 @@ export class UIControls {
     // Обновление текста кнопки управления
     updateControlButton() {
         if (this.selectedChannels.size === 0) {
-            this.controlButton.textContent = 'Select Channels';
-            this.controlButton.disabled = true;
-        } else if (this.selectedChannels.size === 1) {
-            this.controlButton.textContent = 'Optimize Channels';
+            this.controlButton.textContent = 'Close'; // Новая надпись для закрытия окна
+            this.controlButton.disabled = false; // Кнопка активна для закрытия окна
+        } else if (this.selectedChannels.size === 4) { // Когда достигнут максимум каналов
+            this.controlButton.textContent = 'Clear All';
             this.controlButton.disabled = false;
         } else {
-            this.controlButton.textContent = 'Clear Selection';
+            this.controlButton.textContent = 'Optimize';
             this.controlButton.disabled = false;
         }
     }
@@ -154,13 +154,16 @@ export class UIControls {
     // Обработчик клика по кнопке управления
     handleControlButtonClick() {
         if (this.selectedChannels.size === 0) {
-            return; // Кнопка должна быть отключена
-        } else if (this.selectedChannels.size === 1) {
-            // Режим оптимизации: находим лучшие каналы для добавления
-            this.optimizeChannelSelection();
-        } else {
-            // Очищаем выбор
+            // Если нет выбранных каналов, удаляем окно счетчика
+            this.removeChannelsCounter();
+        } else if (this.selectedChannels.size === 4) {
+            // Если выбрано максимальное количество каналов, очищаем выбор
             this.clearChannelSelection();
+            // НЕ удаляем окно счетчика после очистки
+            this.updateControlButton(); // Обновляем текст кнопки
+        } else {
+            // Режим оптимизации для остальных случаев
+            this.optimizeChannelSelection();
         }
     }
 
@@ -201,7 +204,33 @@ export class UIControls {
         }
     }
 
+    // Удаление модального окна
+    removeChannelsCounter() {
+        // Проверяем существование элемента счетчика
+        if (this.channelsCounter) {
+            // Удаляем элемент из DOM
+            this.channelsCounter.remove();
+            // Очищаем ссылку на элемент
+            this.channelsCounter = null;
+            // Очищаем ссылки на дочерние элементы
+            this.selectedChannelsList = null;
+            this.controlButton = null;
+        }
+    }
+
     // Очистка выбора каналов
+    // clearChannelSelection() {
+    //     this.selectedChannels.forEach((info, element) => {
+    //         element.classList.remove('selected');
+    //     });
+    //     this.selectedChannels.clear();
+    //     this.updateChannelsCounter();
+    //     this.updateInterference();
+    //     // Если после очистки нет выбранных каналов, удаляем счетчик
+    //     if (this.selectedChannels.size === 0) {
+    //         this.removeChannelsCounter();
+    //     }
+    // }
     clearChannelSelection() {
         this.selectedChannels.forEach((info, element) => {
             element.classList.remove('selected');
@@ -209,6 +238,8 @@ export class UIControls {
         this.selectedChannels.clear();
         this.updateChannelsCounter();
         this.updateInterference();
+        // НЕ удаляем окно счетчика автоматически
+        this.updateControlButton(); // Обновляем текст кнопки после очистки
     }
 
     // Показ модального окна с информацией о канале
