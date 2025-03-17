@@ -105,7 +105,6 @@ button:not(.analyze-btn) {
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 0 0 10px cyan;
-    width: 280px;
     text-transform: uppercase;
 }
 
