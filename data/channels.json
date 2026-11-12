@@ -1,0 +1,577 @@
+{
+  "analog": {
+    "900": {
+      "LF": {
+        "bandName": "Low Frequency FPV",
+        "bandTitle": "900_Low",
+        "region": "FCC/CE",
+        "channelWidth": 10,
+        "channels": {
+          "1": 900,
+          "2": 910,
+          "3": 920,
+          "4": 930,
+          "5": 940
+        }
+      }
+    },
+    "5G8": {
+      "A": {
+        "bandName": "Band A (TBS/RangeVideo/SpyHawk)",
+        "bandTitle": "A",
+        "region": "FCC/CE",
+        "channelWidth": 30,
+        "channels": {
+          "1": 5865,
+          "2": 5845,
+          "3": 5825,
+          "4": 5805,
+          "5": 5785,
+          "6": 5765,
+          "7": 5745,
+          "8": 5725
+        }
+      },
+      "B": {
+        "bandName": "Band B (FlyCamOne Europe)",
+        "bandTitle": "B",
+        "region": "FCC/CE",
+        "channelWidth": 30,
+        "channels": {
+          "1": 5733,
+          "2": 5752,
+          "3": 5771,
+          "4": 5790,
+          "5": 5809,
+          "6": 5828,
+          "7": 5847,
+          "8": 5866
+        }
+      },
+      "E": {
+        "bandName": "Band E (HobbyKing/Foxtech)",
+        "bandTitle": "E",
+        "region": "FCC/CE",
+        "channelWidth": 30,
+        "channels": {
+          "1": 5705,
+          "2": 5685,
+          "3": 5665,
+          "4": 5645,
+          "5": 5885,
+          "6": 5905,
+          "7": 5925,
+          "8": 5945
+        }
+      },
+      "F": {
+        "bandName": "Band F (ImmersionRC/Iftron)",
+        "bandTitle": "F",
+        "region": "FCC/CE",
+        "channelWidth": 30,
+        "channels": {
+          "1": 5740,
+          "2": 5760,
+          "3": 5780,
+          "4": 5800,
+          "5": 5820,
+          "6": 5840,
+          "7": 5860,
+          "8": 5880
+        }
+      },
+      "R": {
+        "bandName": "Raceband (ImmersionRC)",
+        "bandTitle": "R",
+        "region": "FCC/CE",
+        "channelWidth": 30,
+        "channels": {
+          "1": 5658,
+          "2": 5695,
+          "3": 5732,
+          "4": 5769,
+          "5": 5806,
+          "6": 5843,
+          "7": 5880,
+          "8": 5917
+        }
+      },
+      "H": {
+        "bandName": "Band H (High band)",
+        "bandTitle": "H",
+        "region": "FCC/CE",
+        "channelWidth": 30,
+        "channels": {
+          "1": 5653,
+          "2": 5693,
+          "3": 5733,
+          "4": 5773,
+          "5": 5813,
+          "6": 5853,
+          "7": 5893,
+          "8": 5933
+        }
+      }
+    },
+    "5G3": {
+      "D": {
+        "bandName": "Band D (Diatone)",
+        "bandTitle": "D",
+        "region": "ILLEGAL",
+        "channelWidth": 30,
+        "channels": {
+          "1": 5362,
+          "2": 5399,
+          "3": 5436,
+          "4": 5473,
+          "5": 5510,
+          "6": 5547,
+          "7": 5584,
+          "8": 5621
+        }
+      },
+      "U": {
+        "bandName": "Band U (Ultra Low)",
+        "bandTitle": "U",
+        "region": "ILLEGAL",
+        "channelWidth": 30,
+        "channels": {
+          "1": 5325,
+          "2": 5348,
+          "3": 5366,
+          "4": 5384,
+          "5": 5402,
+          "6": 5420,
+          "7": 5438,
+          "8": 5456
+        }
+      },
+      "O": {
+        "bandName": "Band O (Old Low)",
+        "bandTitle": "O",
+        "region": "ILLEGAL",
+        "channelWidth": 30,
+        "channels": {
+          "1": 5474,
+          "2": 5492,
+          "3": 5510,
+          "4": 5528,
+          "5": 5546,
+          "6": 5564,
+          "7": 5582,
+          "8": 5600
+        }
+      },
+      "L": {
+        "bandName": "Band L (Low band)",
+        "bandTitle": "L",
+        "region": "ILLEGAL",
+        "channelWidth": 30,
+        "channels": {
+          "1": 5333,
+          "2": 5373,
+          "3": 5413,
+          "4": 5453,
+          "5": 5493,
+          "6": 5533,
+          "7": 5573,
+          "8": 5613
+        }
+      },
+      "LF": {
+        "bandName": "Band L (Low band)",
+        "bandTitle": "LF",
+        "region": "FCC/CE",
+        "channelWidth": 30,
+        "channels": {
+          "1": 5333,
+          "2": 5373,
+          "3": 5413,
+          "4": 5453,
+          "5": 5493,
+          "6": 5533,
+          "7": 5573,
+          "8": 5613
+        }
+      }
+    },
+    "4G9": {
+      "X": {
+        "bandName": "Band X (4.9GHz)",
+        "bandTitle": "X",
+        "region": "FCC/CE",
+        "channelWidth": 20,
+        "channels": {
+          "1": 4940,
+          "2": 4960,
+          "3": 4980,
+          "4": 5000,
+          "5": 5020,
+          "6": 5040,
+          "7": 5060,
+          "8": 5080
+        }
+      },
+      "J": {
+        "bandName": "Band J (4.9GHz)",
+        "bandTitle": "J",
+        "region": "FCC/CE",
+        "channelWidth": 20,
+        "channels": {
+          "1": 4920,
+          "2": 4940,
+          "3": 4960,
+          "4": 4980,
+          "5": 5000,
+          "6": 5020,
+          "7": 5040,
+          "8": 5060
+        }
+      }
+    },
+    "3G3": {
+      "A": {
+        "bandName": "3.3 Band A (Fatshark)",
+        "bandTitle": "3.3_A",
+        "region": "FCC/CE",
+        "channelWidth": 20,
+        "channels": {
+          "1": 3320,
+          "2": 3345,
+          "3": 3370,
+          "4": 3395,
+          "5": 3420,
+          "6": 3445,
+          "7": 3470,
+          "8": 3495
+        }
+      },
+      "B": {
+        "bandName": "3.3 Band B (ImmersionRC)",
+        "bandTitle": "3.3_B",
+        "region": "FCC/CE",
+        "channelWidth": 20,
+        "channels": {
+          "1": 3310,
+          "2": 3330,
+          "3": 3355,
+          "4": 3380,
+          "5": 3405,
+          "6": 3430,
+          "7": 3455,
+          "8": 3480
+        }
+      }
+    },
+    "2G4": {
+      "Standard": {
+        "bandName": "Standard 2.4GHz (Common)",
+        "bandTitle": "2.4_Stand",
+        "region": "FCC/CE",
+        "channelWidth": 17,
+        "channels": {
+          "1": 2370,
+          "2": 2390,
+          "3": 2410,
+          "4": 2430,
+          "5": 2450,
+          "6": 2470,
+          "7": 2490,
+          "8": 2510
+        }
+      },
+      "TBS": {
+        "bandName": "TBS Crossfire Video (Team BlackSheep)",
+        "bandTitle": "2.4_TBS",
+        "region": "FCC/CE",
+        "channelWidth": 17,
+        "channels": {
+          "1": 2355,
+          "2": 2375,
+          "3": 2395,
+          "4": 2415,
+          "5": 2435
+        }
+      }
+    },
+    "1G3": {
+      "LR": {
+        "bandName": "Long Range",
+        "bandTitle": "1.3_Long",
+        "region": "FCC/CE",
+        "channelWidth": 18,
+        "channels": {
+          "1": 1080,
+          "2": 1120,
+          "3": 1160,
+          "4": 1200,
+          "5": 1258,
+          "6": 1280,
+          "7": 1320,
+          "8": 1360
+        }
+      }
+    }
+  },
+  "digital": {
+    "5G8": {
+      "DJI_25": {
+        "bandName": "DJI FPV/Avatar 25mbps",
+        "bandTitle": "DJI25",
+        "region": "FCC",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5660,
+          "2": 5695,
+          "3": 5735,
+          "4": 5770,
+          "5": 5805,
+          "6": 5878,
+          "7": 5914,
+          "8": 5839
+        }
+      },
+      "DJI_25_CE": {
+        "bandName": "DJI FPV/Avatar 25mbps CE",
+        "bandTitle": "DJI25CE",
+        "region": "CE",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5735,
+          "2": 5770,
+          "3": 5805,
+          "8": 5839
+        }
+      },
+      "DJI_50": {
+        "bandName": "DJI FPV/Avatar 50mbps",
+        "bandTitle": "DJI50",
+        "region": "FCC/CE",
+        "channelWidth": 40,
+        "channels": {
+          "1": 5695,
+          "2": 5770,
+          "3": 5878,
+          "8": 5839
+        }
+      },
+      "HDZ": {
+        "bandName": "HDZero",
+        "bandTitle": "HDZ",
+        "region": "FCC",
+        "channelWidth": 27,
+        "channels": {
+          "1": 5658,
+          "2": 5695,
+          "3": 5732,
+          "4": 5769,
+          "5": 5806,
+          "6": 5843,
+          "7": 5880,
+          "8": 5917
+        }
+      },
+      "HDZ_CE": {
+        "bandName": "HDZero CE",
+        "bandTitle": "HDZCE",
+        "region": "CE",
+        "channelWidth": 27,
+        "channels": {
+          "1": 5732,
+          "2": 5769,
+          "3": 5806,
+          "4": 5843
+        }
+      },
+      "DJI_CE": {
+        "bandName": "DJI FPV CE Mode",
+        "bandTitle": "DJI_CE",
+        "region": "CE",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5735,
+          "2": 5770,
+          "3": 5805,
+          "4": 5878
+        }
+      },
+      "DJI_FCC": {
+        "bandName": "DJI FPV FCC Mode",
+        "bandTitle": "DJI_FCC",
+        "region": "FCC",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5660,
+          "2": 5700,
+          "3": 5745,
+          "4": 5785,
+          "5": 5825,
+          "6": 5865,
+          "7": 5905,
+          "8": 5945,
+          "9": 5960
+        }
+      },
+      "DJI_SRD": {
+        "bandName": "DJI FPV SRD Mode",
+        "bandTitle": "DJI_SRD",
+        "region": "CE",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5735,
+          "2": 5770,
+          "3": 5805,
+          "4": 5839
+        }
+      },
+      "DJI_FCC_U": {
+        "bandName": "DJI FPV FCC Unlocked",
+        "bandTitle": "DJI_FCC_U",
+        "region": "FCC",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5660,
+          "2": 5700,
+          "3": 5745,
+          "4": 5785,
+          "5": 5825,
+          "6": 5865,
+          "7": 5905,
+          "8": 5945,
+          "9": 5980,
+          "10": 6025,
+          "11": 5925
+        }
+      },
+      "HD_Zero_CE": {
+        "bandName": "HDZero CE Mode",
+        "bandTitle": "HD_Zero_CE",
+        "region": "CE",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5735,
+          "2": 5770,
+          "3": 5805,
+          "4": 5878
+        }
+      },
+      "HD_Zero_FCC": {
+        "bandName": "HDZero FCC Mode",
+        "bandTitle": "HD_Zero_FCC",
+        "region": "FCC",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5660,
+          "2": 5700,
+          "3": 5745,
+          "4": 5785,
+          "5": 5825,
+          "6": 5865,
+          "7": 5905,
+          "8": 5945,
+          "9": 5960
+        }
+      },
+      "HD_Zero_FCC_U": {
+        "bandName": "HDZero FCC Unlocked",
+        "bandTitle": "HD_Zero_FCC_U",
+        "region": "FCC",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5660,
+          "2": 5700,
+          "3": 5745,
+          "4": 5785,
+          "5": 5825,
+          "6": 5865,
+          "7": 5905,
+          "8": 5945,
+          "9": 5980,
+          "10": 6025,
+          "11": 5925,
+          "12": 6040
+        }
+      },
+      "Walksnail_Stand": {
+        "bandName": "Walksnail Avatar Standard",
+        "bandTitle": "Walksnail_Stand",
+        "region": "FCC/CE",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5660,
+          "2": 5700,
+          "3": 5745,
+          "4": 5805,
+          "5": 5878
+        }
+      },
+      "Walksnail_FCC": {
+        "bandName": "Walksnail Avatar FCC Mode",
+        "bandTitle": "Walksnail_FCC",
+        "region": "FCC",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5660,
+          "2": 5700,
+          "3": 5745,
+          "4": 5785,
+          "5": 5825,
+          "6": 5865,
+          "7": 5905,
+          "8": 5945,
+          "9": 5960
+        }
+      },
+      "Walksnail_FCC_U": {
+        "bandName": "Walksnail Avatar FCC Unlocked",
+        "bandTitle": "Walksnail_FCC_U",
+        "region": "FCC",
+        "channelWidth": 20,
+        "channels": {
+          "1": 5660,
+          "2": 5700,
+          "3": 5745,
+          "4": 5785,
+          "5": 5825,
+          "6": 5865,
+          "7": 5905,
+          "8": 5945,
+          "9": 5980,
+          "10": 6025,
+          "11": 5925,
+          "12": 6040
+        }
+      }
+    },
+    "2G4": {
+      "DJI_CE": {
+        "bandName": "2.4 DJI FPV CE Mode",
+        "bandTitle": "2.4_DJI_CE",
+        "region": "CE",
+        "channelWidth": 20,
+        "channels": {
+          "1": 2402,
+          "2": 2426,
+          "3": 2450,
+          "4": 2475
+        }
+      },
+      "DJI_FCC": {
+        "bandName": "2.4 DJI FPV FCC Unlocked",
+        "bandTitle": "2.4_DJI_FCC",
+        "region": "FCC",
+        "channelWidth": 20,
+        "channels": {
+          "1": 2380,
+          "2": 2402,
+          "3": 2414,
+          "4": 2426,
+          "5": 2438,
+          "6": 2450,
+          "7": 2475,
+          "8": 2480
+        }
+      }
+    }
+  }
+}

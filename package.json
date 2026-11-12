@@ -1,0 +1,11 @@
+{
+  "name": "fpv-frequency-calc",
+  "version": "2.0.0",
+  "description": "Offline-first PWA for planning FPV video channels without interference",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "npx --yes serve ."
+  }
+}
